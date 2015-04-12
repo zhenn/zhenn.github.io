@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>关于absolute | zhenn</title>
+  <title>关于javascript作用域 | zhenn</title>
   <meta name="author" content="zhenn">
   
-  <meta name="description" content="记得刚认识absolute的时候，不知道在哪本参考书上看到过关于关于它的介绍，大概意思是这样的，“一个定义了absolute的子级元素（以下简称child）总离不开一个定义relative的父级元素（以下简称parent），否则child将相对于body定位”，时至今日，我不敢说这样的理解是错误的，但是难免有点歧义或者以偏概全，详情以下分解。
-实例一：">
+  <meta name="description" content="今天一个挚友给我出了道javascript笔试题，代码如下：
+123456function test()&amp;#123;    var a = b = 2;&amp;#125;test();alert(b);alert(a);">
   
   
-  <meta property="og:title" content="关于absolute"/>
+  <meta property="og:title" content="关于javascript作用域"/>
   <meta property="og:site_name" content="zhenn"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -148,27 +148,18 @@
       
       
   
-    <h1 class="title">关于absolute</h1>
+    <h1 class="title">关于javascript作用域</h1>
   
 
-      <time datetime="2008-04-12T07:05:42.000Z"><a href="/2008/04/12/关于absolute/">2008-04-12</a></time>
+      <time datetime="2010-07-12T08:47:02.000Z"><a href="/2010/07/12/关于javascript作用域/">2010-07-12</a></time>
       
   </header>
     <div class="entry">
       
-        <p>记得刚认识absolute的时候，不知道在哪本参考书上看到过关于关于它的介绍，大概意思是这样的，“一个定义了absolute的子级元素（以下简称child）总离不开一个定义relative的父级元素（以下简称parent），否则child将相对于body定位”，时至今日，我不敢说这样的理解是错误的，但是难免有点歧义或者以偏概全，详情以下分解。</p>
-<h3 id="实例一：">实例一：</h3><p><img src="/img/1.jpg" alt="img"></p>
+        <p>今天一个挚友给我出了道javascript笔试题，代码如下：</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span><span class="comment">&#123;</span><br><span class="line">    var a = b = 2;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="title">test</span><span class="params">()</span>;</span></span><br><span class="line">alert(b);</span><br><span class="line">alert(a);</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>代码如下：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="property">id</span>=<span class="string">"container_091028"</span> style=<span class="string">"width:300px; height:200px; margin:16px auto; background:gray;"</span>&gt;</span><br><span class="line">　　&lt;<span class="keyword">div</span> style=<span class="string">"width:100px; height:100px; background:green;"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">　　&lt;<span class="keyword">div</span> style=<span class="string">"width:100px; height:100px; position:absolute; margin:-10px; background:purple;"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
-<h3>实例二：</h3>
-
-<p>如果将绿色块对应的html代码（未设置absolute）放在紫色块对应的html代码的下面，按照html由上而下的解析顺序，也就是先解析absolute，后解析普通流元素，那么显示效果将如下</p>
-<p><img src="/img/2.jpg" alt="img"></p>
-<p>上面的这两种情况中，仅仅用margin来控制child的位置，并没有用left、top。原因很简单，在parent中并未设置relative，而child设置了absolute，如果在此时用left、top来控制child的位置，后果可想而知，会出现child脱离parent元素而去亲近body的现象，这也恰恰印证了参考书中那句话的正确性。之所以说它有歧义，就在于它缺少了一个很重要的前提条件（child设置left、top）！</p>
-<p>对于给每个absolute的子级元素都嵌套一个relative的父级元素的情况，我认为是absolute最标准的用法，相信也是最容易理解的，其优点在这里不再赘述！另外友情提示一下，在css2中文手册（苏沈小雨版）中关于position定位的说明有失精准，见下图：</p>
-<p><img src="/img/3.jpg" alt="img"></p>
-<p>其中“此时对象不具有边距”是不准确的，事实上不但有边距，而且其边距还可以和eft、top值叠加！</p>
+<p>我看到这段代码，我笑了，很自信的回答道，会报错，因为a,b都是局部变量，所以a and b is not defined。然后我朋友笑了，迷惑ing，难道我错了吗？迟疑了10几秒，原来a是局部变量，而b没有在test中声明，故而是全局变量，很显然，在 这种情况下，执行情况应该是b=2,a is not defined；后来想想，自己还真是缺乏点思维的严谨性啊，特发此贴，以儆效尤！</p>
 
 	 
 	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
@@ -189,7 +180,7 @@
        		
   
   <div class="tags">
-    <a href="/tags/css/">css</a>
+    <a href="/tags/javascript/">javascript</a>
   </div>
 
      		  

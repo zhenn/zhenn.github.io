@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>关于absolute | zhenn</title>
+  <title>利用haslayout征服IE6、7 | zhenn</title>
   <meta name="author" content="zhenn">
   
-  <meta name="description" content="记得刚认识absolute的时候，不知道在哪本参考书上看到过关于关于它的介绍，大概意思是这样的，“一个定义了absolute的子级元素（以下简称child）总离不开一个定义relative的父级元素（以下简称parent），否则child将相对于body定位”，时至今日，我不敢说这样的理解是错误的，但是难免有点歧义或者以偏概全，详情以下分解。
-实例一：">
+  <meta name="description" content="haslayout是Windows Internet Explorer渲染引擎的一个内部组成部分。在IE中，一个元素要么自己对自身的内容进行计算大小和组织，要么依赖于父元素来计算尺寸和组织内容。为了调节这两个不同的概念，渲染引擎采用了hasLayout的属性，属性值可以为true || false。
+在html元素中，负责组织自身内容的元素将默认有一个布局，主要包含以下元素： body, html, table, tr, th, td, img, hr, input, button, file, select, textarea, fieldset, marquee, frameset, frame, iframe, objects, applets, embed。而div, ul, li, h1~h6之流，在默认情况下，是没能获得layout的，按照微软给出的解释，这是出于对“性能和简洁”和间接的考虑,如果所有元素都默认有布局，会对性能和内存使用上产生有害的影响。">
   
   
-  <meta property="og:title" content="关于absolute"/>
+  <meta property="og:title" content="利用haslayout征服IE6、7"/>
   <meta property="og:site_name" content="zhenn"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -148,27 +148,26 @@
       
       
   
-    <h1 class="title">关于absolute</h1>
+    <h1 class="title">利用haslayout征服IE6、7</h1>
   
 
-      <time datetime="2008-04-12T07:05:42.000Z"><a href="/2008/04/12/关于absolute/">2008-04-12</a></time>
+      <time datetime="2008-05-01T03:02:22.000Z"><a href="/2008/05/01/利用haslayout征服IE6、7/">2008-05-01</a></time>
       
   </header>
     <div class="entry">
       
-        <p>记得刚认识absolute的时候，不知道在哪本参考书上看到过关于关于它的介绍，大概意思是这样的，“一个定义了absolute的子级元素（以下简称child）总离不开一个定义relative的父级元素（以下简称parent），否则child将相对于body定位”，时至今日，我不敢说这样的理解是错误的，但是难免有点歧义或者以偏概全，详情以下分解。</p>
-<h3 id="实例一：">实例一：</h3><p><img src="/img/1.jpg" alt="img"></p>
-<a id="more"></a>
-<p>代码如下：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="property">id</span>=<span class="string">"container_091028"</span> style=<span class="string">"width:300px; height:200px; margin:16px auto; background:gray;"</span>&gt;</span><br><span class="line">　　&lt;<span class="keyword">div</span> style=<span class="string">"width:100px; height:100px; background:green;"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">　　&lt;<span class="keyword">div</span> style=<span class="string">"width:100px; height:100px; position:absolute; margin:-10px; background:purple;"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
-<h3>实例二：</h3>
-
-<p>如果将绿色块对应的html代码（未设置absolute）放在紫色块对应的html代码的下面，按照html由上而下的解析顺序，也就是先解析absolute，后解析普通流元素，那么显示效果将如下</p>
-<p><img src="/img/2.jpg" alt="img"></p>
-<p>上面的这两种情况中，仅仅用margin来控制child的位置，并没有用left、top。原因很简单，在parent中并未设置relative，而child设置了absolute，如果在此时用left、top来控制child的位置，后果可想而知，会出现child脱离parent元素而去亲近body的现象，这也恰恰印证了参考书中那句话的正确性。之所以说它有歧义，就在于它缺少了一个很重要的前提条件（child设置left、top）！</p>
-<p>对于给每个absolute的子级元素都嵌套一个relative的父级元素的情况，我认为是absolute最标准的用法，相信也是最容易理解的，其优点在这里不再赘述！另外友情提示一下，在css2中文手册（苏沈小雨版）中关于position定位的说明有失精准，见下图：</p>
-<p><img src="/img/3.jpg" alt="img"></p>
-<p>其中“此时对象不具有边距”是不准确的，事实上不但有边距，而且其边距还可以和eft、top值叠加！</p>
+        <p><a href="https://msdn.microsoft.com/en-us/library/ie/ms530764%28v=vs.85%29.aspx" target="_blank" rel="external">haslayout</a>是<code>Windows Internet Explorer</code>渲染引擎的一个内部组成部分。在IE中，一个元素要么自己对自身的内容进行计算大小和组织，要么依赖于父元素来计算尺寸和组织内容。为了调节这两个不同的概念，渲染引擎采用了hasLayout的属性，属性值可以为true || false。</p>
+<p>在html元素中，负责组织自身内容的元素将默认有一个布局，主要包含以下元素： body, html, table, tr, th, td, img, hr, input, button, file, select, textarea, fieldset, marquee, frameset, frame, iframe, objects, applets, embed。而div, ul, li, h1~h6之流，在默认情况下，是没能获得layout的，按照微软给出的解释，这是出于对“性能和简洁”和间接的考虑,如果所有元素都默认有布局，会对性能和内存使用上产生有害的影响。<br><a id="more"></a></p>
+<p>乍一看这段话，似乎不知所云，但是如果说在IE中稀奇古怪的bug和这个所谓的haslayout有关，或许可以吸引你的些许注意力，相信每个有过前端开发经历的人，都会对IE系列浏览器中形形色色的诸多bug搞的焦头烂额。针对这些bug，我们知道一种或者几种不同的解决办法（方法当然是有巧拙之分的），但是对于问题的根源，我们却经常不去深究，也不知道如何去更深一层的认识它！</p>
+<p>当网页在IE中有异常表现时，可以尝试激发haslayout来看看是不是问题所在，最常用的方法是给某元素css设定zoom:1或者width/height属性，其次再考虑其他属性，因为使用这两种方法能在不改变现有环境的条件下激发元素的haslayout。</p>
+<p>事实上大部分的IE显示错误，都可以通过激发元素的haslayout属性来修正，能激发元素haslayout的属性值除zoom和width/height之外还包括：</p>
+<ul>
+<li>display: inline-block</li>
+<li>float: (left 或 right)</li>
+<li>position: absolute</li>
+<li>writing-mode: tb-rl</li>
+</ul>
+<p>另外本文中提到的IE，只包括IE6和IE7，至于新版本的IE8，不在范围之内，貌似IE8已经解决了haslayout带来的诸多麻烦，具体情况不详！</p>
 
 	 
 	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
