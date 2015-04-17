@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>诡异的delete | zhenn</title>
+  <meta name="author" content="zhenn">
+  
+  <meta name="description" content="delete这个操作符呢，在javascript中不是很常用，但是他的特性的确很诡异。
+1，删除对象的属性，代码：
+123456var o = &amp;#123;    a: 1,    b: 2    &amp;#125;;delete o.a;alert(o.a);  //undefined">
+  
+  
+  <meta property="og:title" content="诡异的delete"/>
+  <meta property="og:site_name" content="zhenn"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+   <link rel="apple-touch-icon" href="/icon.png" />
+   <link rel="shortcut icon" href="/favicon.png" >
+   <link rel="alternate" href="http://xxx.xx/atom.xml" title="zhenn" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+</head>
+
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar" class="alignleft">
+      <div class="navigationBar">
+        <a href="/">zhenn</a>
+      </div>
+    	
+  <div class="widget search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  <nav class="widget" id="menu">
+	<ul>
+    
+      <li class="cell"><a class="next" href="/">主页</a><li>
+    
+      <li class="cell"><a class="next" href="/archives/">归档</a><li>
+    
+      <li class="cell"><a class="next" href="/about/">关于我</a><li>
+    
+    </ul>
+</nav>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/技术/">技术</a><small>8</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/css/" style="font-size: 10px;">css</a><a href="/tags/javascript/" style="font-size: 20px;">javascript</a>
+  </div>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最近发布</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2010/09/01/诡异的delete/">诡异的delete</a>
+      </li>
+    
+      <li>
+        <a href="/2010/07/12/关于javascript作用域/">关于javascript作用域</a>
+      </li>
+    
+      <li>
+        <a href="/2010/07/02/javascript设计模式学习笔记之“类式继承”/">javascript设计模式学习笔记之“类式继承”</a>
+      </li>
+    
+      <li>
+        <a href="/2010/04/12/JavaScript日历控件/">JavaScript日历控件</a>
+      </li>
+    
+      <li>
+        <a href="/2010/03/30/计算字符串中出现次数最多的字符和出现的次数/">计算字符串中出现次数最多的字符和出现的次数</a>
+      </li>
+    
+      <li>
+        <a href="/2008/05/05/贪吃蛇/">贪吃蛇</a>
+      </li>
+    
+      <li>
+        <a href="/2008/05/01/利用haslayout征服IE6、7/">利用haslayout征服IE6、7</a>
+      </li>
+    
+      <li>
+        <a href="/2008/04/12/关于absolute/">关于absolute</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+    	<footer id="footer" class="inner"><div class="copyright">
+  
+  &copy; 2015 zhenn
+  
+</div>
+
+
+
+</footer>
+    </aside>
+    
+    
+    <div id="hidden-navigationBar" class="navigationBar">
+      <a href="/">zhenn</a>
+    </div>
+    <div id="main-col" class="alignright">
+    <div id="wrapper">
+      
+
+
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+  <header>
+      
+      
+  
+    <h1 class="title">诡异的delete</h1>
+  
+
+      <time datetime="2010-09-01T09:35:07.000Z"><a href="/2010/09/01/诡异的delete/">2010-09-01</a></time>
+      
+  </header>
+    <div class="entry">
+      
+        <p>delete这个操作符呢，在javascript中不是很常用，但是他的特性的确很诡异。</p>
+<p>1，删除对象的属性，代码：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: <span class="number">2</span>    </span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">delete</span> o.a;</span><br><span class="line">alert(o.a);  <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>那么到底delete删除的是对象的属性还是对象的属性值呢，我开始觉得删除的应该是值，因为结果是undefined，而没有报错。但是事实上，我的看法是错误的，举例说明：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> a = &#123; </span><br><span class="line">    <span class="keyword">pro</span>: <span class="string">"zhenn"</span></span><br><span class="line">&#125;;</span><br><span class="line">o.c = a;</span><br><span class="line">delete o.c;    <span class="comment">//删除对象o的属性a</span></span><br><span class="line">console.<span class="literal">log</span>(o.c);     <span class="comment">// undefined</span></span><br><span class="line">console.<span class="literal">log</span>(a.<span class="keyword">pro</span>);   <span class="comment">// zhenn</span></span><br></pre></td></tr></table></figure>
+<p>通过上述代码，不难看出在delete o.c之后呢，并没有删除o.c所指向的值，也就是对象a依然存在，否则a.pro应该是过不了编译这关的。说到这里，可以这么理解delete删除对象 的属性，其实相当于删除了对对象中属性值的引用而已，但是这个值依然在对象栈中！</p>
+<p>2，对数组的操作，先看代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">delete</span> arr[<span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.length);  <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);   <span class="comment">// [1,2,undefined]</span></span><br></pre></td></tr></table></figure>
+<p>又一次证明了，delete并没有真正删除元素，只是删除了元素所对应的键值。为了更进一步认清delete的本质，和Array中的pop方法比较一下。如下：</p>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">arr.pop();</span><br><span class="line">console.<span class="built_in">log</span>(arr);  <span class="comment">// [1,2]</span></span><br><span class="line">console.<span class="built_in">log</span>(arr.<span class="built_in">length</span>)  <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>3，以上对对象和数组的操作，还很好理解，但是对于变量的操作，难免让人琢磨不透，代码如下：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">delete</span> a;</span><br><span class="line">alert(a); <span class="comment">// 1</span></span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> <span class="number">42</span>; &#125;</span><br><span class="line"><span class="keyword">delete</span> fn;</span><br><span class="line">alert(fn());  <span class="comment">// 42</span></span><br><span class="line">   </span><br><span class="line">b = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">delete</span> b;</span><br><span class="line">alert(b);  <span class="comment">// b is not defined;</span></span><br></pre></td></tr></table></figure>
+<p>很难解释通啊，同样是全局变量，用var声明的竟然删除不了，而直接声明的变量b竟然可以删除，不能不说delete很诡异了，在ECMA给出的解释中，也仅仅是说通过var声明的变量和通过function声明的函数拥有DontDelete特性，无法被删除。</p>
+
+	 
+	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
+<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://yoursite.com"><strong>zhenn</strong></a></span>
+</p>
+       	 
+      
+    </div>
+    <footer>
+      
+	 
+     		  
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>
+  </div>
+
+       		
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>
+  </div>
+
+     		  
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style addthis addthis_toolbox addthis_default_style" style="color: black">
+	<span class="jiathis_txt"></span>
+	<a class="jiathis_button_tools_1"></a>
+	<a class="jiathis_button_tools_2"></a>
+	<a class="jiathis_button_tools_3"></a>
+	<a class="jiathis_button_tools_4"></a>
+	<a href="http://www.jiathis.com/share?uid=1784645" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2022681" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+       	 
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=2022681" async=""></script>
+</section>
+
+</div>
+    </div>
+    <div class="tabbar" onload="divideTabBar()">
+	
+      <div class="tabbaritem"><a class="next" href="/">主页</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/archives/">归档</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/about/">关于我</a></div>
+    
+</div>
+
+
+  </div>
+</body>
+</html>
