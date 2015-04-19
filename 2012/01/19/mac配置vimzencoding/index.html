@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mac配置vimzencoding | zhenn</title>
+  <meta name="author" content="zhenn">
+  
+  <meta name="description" content="无论你使用什么样的文本编辑器，zencoding作为一种很酷的编码方式，倍受开发人员的青睐。本文简单介绍mac vim下的zen coding配置：
+一，下载zen coding插件官方github地址：https://github.com/mattn/zencoding-vim
+可使用git下载，也可以下载zip包。文档说明中有些地方不是很详尽，下面稍加补充说明。
+二，拷贝文件到vim目录
+首先解压缩zip包zencoding-vim-master.zip，进入zencoding-vim-master文件夹，拷贝该目录下的所有文件到剪贴板。进入用户根目录（~/username），找到.vim文件夹（如不存在则自行创建），粘贴剪贴板中的内容到.vim根目录。">
+  
+  
+  <meta property="og:title" content="mac配置vimzencoding"/>
+  <meta property="og:site_name" content="zhenn"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+   <link rel="apple-touch-icon" href="/icon.png" />
+   <link rel="shortcut icon" href="/favicon.png" >
+   <link rel="alternate" href="http://xxx.xx/atom.xml" title="zhenn" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+</head>
+
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar" class="alignleft">
+      <div class="navigationBar">
+        <a href="/">zhenn</a>
+      </div>
+    	
+  <div class="widget search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  <nav class="widget" id="menu">
+	<ul>
+    
+      <li class="cell"><a class="next" href="/">主页</a><li>
+    
+      <li class="cell"><a class="next" href="/archives/">归档</a><li>
+    
+      <li class="cell"><a class="next" href="/about/">关于我</a><li>
+    
+    </ul>
+</nav>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/技术/">技术</a><small>28</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/apache/" style="font-size: 10px;">apache</a><a href="/tags/css/" style="font-size: 16.67px;">css</a><a href="/tags/dom/" style="font-size: 16.67px;">dom</a><a href="/tags/javascript/" style="font-size: 20px;">javascript</a><a href="/tags/jslint/" style="font-size: 10px;">jslint</a><a href="/tags/node/" style="font-size: 16.67px;">node</a><a href="/tags/npm/" style="font-size: 16.67px;">npm</a><a href="/tags/shell/" style="font-size: 10px;">shell</a><a href="/tags/vim/" style="font-size: 13.33px;">vim</a><a href="/tags/webapp/" style="font-size: 10px;">webapp</a><a href="/tags/zencoding/" style="font-size: 10px;">zencoding</a><a href="/tags/代理/" style="font-size: 13.33px;">代理</a><a href="/tags/命令行/" style="font-size: 10px;">命令行</a><a href="/tags/性能/" style="font-size: 10px;">性能</a><a href="/tags/跨域/" style="font-size: 10px;">跨域</a>
+  </div>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最近发布</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2014/08/10/node及node模块升级/">node及node模块升级</a>
+      </li>
+    
+      <li>
+        <a href="/2014/02/10/mac版代理开发工具/">mac版代理开发工具</a>
+      </li>
+    
+      <li>
+        <a href="/2013/10/19/如何开发并发布node插件到npm平台/">如何开发并发布node插件到npm平台</a>
+      </li>
+    
+      <li>
+        <a href="/2013/04/30/使用apache开启proxy服务/">使用apache开启proxy服务</a>
+      </li>
+    
+      <li>
+        <a href="/2013/04/27/mac：zsh配置/">mac：zsh配置</a>
+      </li>
+    
+      <li>
+        <a href="/2013/04/19/移动端webapp：图片使用最佳实践/">移动端webapp：图片使用最佳实践</a>
+      </li>
+    
+      <li>
+        <a href="/2012/01/30/mac-jslint-for-vim/">mac:jslint_for_vim</a>
+      </li>
+    
+      <li>
+        <a href="/2012/01/19/mac配置vimzencoding/">mac配置vimzencoding</a>
+      </li>
+    
+      <li>
+        <a href="/2011/12/10/开发命令行工具（unix）/">开发命令行工具（unix）</a>
+      </li>
+    
+      <li>
+        <a href="/2011/11/19/使用npmf解决npm安装nodejs类库失败的问题/">使用npmf解决npm安装nodejs类库失败的问题</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+    	<footer id="footer" class="inner"><div class="copyright">
+  
+  &copy; 2015 zhenn
+  
+</div>
+
+
+
+</footer>
+    </aside>
+    
+    
+    <div id="hidden-navigationBar" class="navigationBar">
+      <a href="/">zhenn</a>
+    </div>
+    <div id="main-col" class="alignright">
+    <div id="wrapper">
+      
+
+
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+  <header>
+      
+      
+  
+    <h1 class="title">mac配置vimzencoding</h1>
+  
+
+      <time datetime="2012-01-19T06:03:23.000Z"><a href="/2012/01/19/mac配置vimzencoding/">2012-01-19</a></time>
+      
+  </header>
+    <div class="entry">
+      
+        <p>无论你使用什么样的文本编辑器，zencoding作为一种很酷的编码方式，倍受开发人员的青睐。本文简单介绍mac vim下的zen coding配置：</p>
+<p>一，下载zen coding插件<br>官方github地址：<a href="https://github.com/mattn/zencoding-vim" target="_blank" rel="external">https://github.com/mattn/zencoding-vim</a></p>
+<p>可使用git下载，也可以下载zip包。<br>文档说明中有些地方不是很详尽，下面稍加补充说明。</p>
+<p>二，拷贝文件到vim目录</p>
+<p>首先解压缩zip包<code>zencoding-vim-master.zip</code>，进入zencoding-vim-master文件夹，拷贝该目录下的所有文件到剪贴板。进入用户根目录<code>（~/username）</code>，找到.vim文件夹（如不存在则自行创建），粘贴剪贴板中的内容到.vim根目录。</p>
+<a id="more"></a>
+<p>三，使用zen coding开始编码之旅</p>
+<p>经过以上两步，使用vim编辑.html文件，在插入模式下，输入html:5<em>（</em>代表光标位置），按下control+y+,（逗号不可省略） ，在编辑中可生成如下代码：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE HTML&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span> </span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>四，简单的配置</p>
+<p>以上生成的结果或许并不符合自己开发的要求，但没有关系，zencoding提供开发者配置文件修改。</p>
+<p>配置文件所在目录：<code>.vim/autoload/zencoding.vim</code> </p>
+<p>打开此配置文件，搜索’html:5’找到相关的snippet，修改成自己想要的结果即可。例如笔者目前从事web无线配置，配置如下：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="command">\ </span>           'html:5': "&lt;!doctype html&gt;<span class="command">\n</span>"</span><br><span class="line"><span class="command">\ </span>                   ."&lt;html manifest=<span class="command">\"</span>appcache.manifest<span class="command">\"</span>&gt;<span class="command">\n</span>"</span><br><span class="line"><span class="command">\ </span>                   ."&lt;head&gt;<span class="command">\n</span>"</span><br><span class="line"><span class="command">\ </span>                   ."&lt;meta charset=<span class="command">\"</span>utf-8<span class="command">\"</span>&gt;<span class="command">\n</span>"</span><br><span class="line"><span class="command">\ </span>                   ."&lt;meta name=<span class="command">\"</span>viewport<span class="command">\"</span> content=<span class="command">\"</span>width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0<span class="command">\"</span> /&gt;<span class="command">\n</span>"</span><br><span class="line"><span class="command">\ </span>                   ."&lt;meta name=<span class="command">\"</span>format-detection<span class="command">\"</span> content=<span class="command">\"</span>telephone=no<span class="command">\"</span> /&gt;<span class="command">\n</span>"</span><br><span class="line"><span class="command">\ </span>                   ."&lt;meta name=<span class="command">\"</span>apple-mobile-web-app-capable<span class="command">\"</span> content=<span class="command">\"</span>yes<span class="command">\"</span> /&gt;"</span><br><span class="line"><span class="command">\ </span>                   ."&lt;title&gt;&lt;/title&gt;<span class="command">\n</span>"</span><br><span class="line"><span class="command">\ </span>                   ."&lt;link href=<span class="command">\"</span><span class="command">\"</span> type=<span class="command">\"</span>text/css<span class="command">\"</span> rel=<span class="command">\"</span>stylesheet<span class="command">\"</span> /&gt;<span class="command">\n</span>"</span><br><span class="line"><span class="command">\ </span>                   ."&lt;script src=<span class="command">\"</span><span class="command">\"</span> type=<span class="command">\"</span>text/javascript<span class="command">\"</span>&gt;&lt;/script&gt;<span class="command">\n</span>"</span><br><span class="line"><span class="command">\ </span>                   ."&lt;link rel=<span class="command">\"</span>apple-touch-icon<span class="command">\"</span> sizes=<span class="command">\"</span>57x57<span class="command">\"</span> href=<span class="command">\"</span><span class="command">\"</span> /&gt;<span class="command">\n</span>"</span><br><span class="line"><span class="command">\ </span>                   ."&lt;/head&gt;<span class="command">\n</span><span class="command">\n</span>"</span><br><span class="line"><span class="command">\ </span>                   ."&lt;body&gt;<span class="command">\n</span><span class="command">\t</span><span class="formula">$<span class="special">&#123;</span>child<span class="special">&#125;</span>|<span class="command">\n</span>&lt;/body&gt;<span class="command">\n</span>"</span><br><span class="line"><span class="command">\ </span>                   ."&lt;/html&gt;"</span></span><br></pre></td></tr></table></figure>
+<p>再次使用vim编辑html文件，输入html:5_，展开代码将看到如下结果：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">manifest</span>=<span class="value">"appcache.manifest"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"format-detection"</span> <span class="attribute">content</span>=<span class="value">"telephone=no"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"apple-mobile-web-app-capable"</span> <span class="attribute">content</span>=<span class="value">"yes"</span> /&gt;</span><span class="tag">&lt;<span class="title">title</span>&gt;</span><span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">href</span>=<span class="value">""</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">""</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"apple-touch-icon"</span> <span class="attribute">sizes</span>=<span class="value">"57x57"</span> <span class="attribute">href</span>=<span class="value">""</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">       </span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>同样的，配置文件包括很多css、js中的书写方法，如果之前并没有接触过zen coding，可详细阅读文件内容进而熟悉zen coding 的编码方式。</p>
+<p>对于zen coding提供的展开代码快捷键（control + y + ,），笔者本身感觉操作不是很方便，当然这也是可以配置的。只需要编辑vim的配置文件（~/.vimrc），将如下代码写入即可。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"设置zencoding插件展开代码快捷键为ctrl+e</span><br><span class="line"></span><span class="keyword">let</span> <span class="variable">g:user_zen_expandabbr_key</span> = <span class="string">'&lt;c-e&gt;'</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:use_zen_complete_tag</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>保存后文件，将覆盖zen coding插件快捷键配置。</p>
+
+	 
+	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
+<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://yoursite.com"><strong>zhenn</strong></a></span>
+</p>
+       	 
+      
+    </div>
+    <footer>
+      
+	 
+     		  
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>
+  </div>
+
+       		
+  
+  <div class="tags">
+    <a href="/tags/vim/">vim</a>, <a href="/tags/zencoding/">zencoding</a>
+  </div>
+
+     		  
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style addthis addthis_toolbox addthis_default_style" style="color: black">
+	<span class="jiathis_txt"></span>
+	<a class="jiathis_button_tools_1"></a>
+	<a class="jiathis_button_tools_2"></a>
+	<a class="jiathis_button_tools_3"></a>
+	<a class="jiathis_button_tools_4"></a>
+	<a href="http://www.jiathis.com/share?uid=1784645" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2022681" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+       	 
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=2022681" async=""></script>
+</section>
+
+</div>
+    </div>
+    <div class="tabbar" onload="divideTabBar()">
+	
+      <div class="tabbaritem"><a class="next" href="/">主页</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/archives/">归档</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/about/">关于我</a></div>
+    
+</div>
+
+
+  </div>
+</body>
+</html>

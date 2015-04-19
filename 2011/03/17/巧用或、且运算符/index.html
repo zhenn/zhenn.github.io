@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>巧用或、且运算符 | zhenn</title>
+  <meta name="author" content="zhenn">
+  
+  <meta name="description" content="对于&amp;amp;&amp;amp;和||运算符，相信大家都用过，分别进行逻辑与运算和逻辑或运算符。如果&amp;amp;&amp;amp;的第一个运算数是false，则不再考虑第二个运算数，直接返回false。如果||的第一个运算数是true，那么也不再考虑第二个运算数。
+没有实践就没有发言权，demo如下：">
+  
+  
+  <meta property="og:title" content="巧用或、且运算符"/>
+  <meta property="og:site_name" content="zhenn"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+   <link rel="apple-touch-icon" href="/icon.png" />
+   <link rel="shortcut icon" href="/favicon.png" >
+   <link rel="alternate" href="http://xxx.xx/atom.xml" title="zhenn" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+</head>
+
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar" class="alignleft">
+      <div class="navigationBar">
+        <a href="/">zhenn</a>
+      </div>
+    	
+  <div class="widget search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  <nav class="widget" id="menu">
+	<ul>
+    
+      <li class="cell"><a class="next" href="/">主页</a><li>
+    
+      <li class="cell"><a class="next" href="/archives/">归档</a><li>
+    
+      <li class="cell"><a class="next" href="/about/">关于我</a><li>
+    
+    </ul>
+</nav>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/技术/">技术</a><small>28</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/apache/" style="font-size: 10px;">apache</a><a href="/tags/css/" style="font-size: 16.67px;">css</a><a href="/tags/dom/" style="font-size: 16.67px;">dom</a><a href="/tags/javascript/" style="font-size: 20px;">javascript</a><a href="/tags/jslint/" style="font-size: 10px;">jslint</a><a href="/tags/node/" style="font-size: 16.67px;">node</a><a href="/tags/npm/" style="font-size: 16.67px;">npm</a><a href="/tags/shell/" style="font-size: 10px;">shell</a><a href="/tags/vim/" style="font-size: 13.33px;">vim</a><a href="/tags/webapp/" style="font-size: 10px;">webapp</a><a href="/tags/zencoding/" style="font-size: 10px;">zencoding</a><a href="/tags/代理/" style="font-size: 13.33px;">代理</a><a href="/tags/命令行/" style="font-size: 10px;">命令行</a><a href="/tags/性能/" style="font-size: 10px;">性能</a><a href="/tags/跨域/" style="font-size: 10px;">跨域</a>
+  </div>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最近发布</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2014/08/10/node及node模块升级/">node及node模块升级</a>
+      </li>
+    
+      <li>
+        <a href="/2014/02/10/mac版代理开发工具/">mac版代理开发工具</a>
+      </li>
+    
+      <li>
+        <a href="/2013/10/19/如何开发并发布node插件到npm平台/">如何开发并发布node插件到npm平台</a>
+      </li>
+    
+      <li>
+        <a href="/2013/04/30/使用apache开启proxy服务/">使用apache开启proxy服务</a>
+      </li>
+    
+      <li>
+        <a href="/2013/04/27/mac：zsh配置/">mac：zsh配置</a>
+      </li>
+    
+      <li>
+        <a href="/2013/04/19/移动端webapp：图片使用最佳实践/">移动端webapp：图片使用最佳实践</a>
+      </li>
+    
+      <li>
+        <a href="/2012/01/30/mac-jslint-for-vim/">mac:jslint_for_vim</a>
+      </li>
+    
+      <li>
+        <a href="/2012/01/19/mac配置vimzencoding/">mac配置vimzencoding</a>
+      </li>
+    
+      <li>
+        <a href="/2011/12/10/开发命令行工具（unix）/">开发命令行工具（unix）</a>
+      </li>
+    
+      <li>
+        <a href="/2011/11/19/使用npmf解决npm安装nodejs类库失败的问题/">使用npmf解决npm安装nodejs类库失败的问题</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+    	<footer id="footer" class="inner"><div class="copyright">
+  
+  &copy; 2015 zhenn
+  
+</div>
+
+
+
+</footer>
+    </aside>
+    
+    
+    <div id="hidden-navigationBar" class="navigationBar">
+      <a href="/">zhenn</a>
+    </div>
+    <div id="main-col" class="alignright">
+    <div id="wrapper">
+      
+
+
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+  <header>
+      
+      
+  
+    <h1 class="title">巧用或、且运算符</h1>
+  
+
+      <time datetime="2011-03-17T05:56:01.000Z"><a href="/2011/03/17/巧用或、且运算符/">2011-03-17</a></time>
+      
+  </header>
+    <div class="entry">
+      
+        <p>对于&amp;&amp;和||运算符，相信大家都用过，分别进行逻辑与运算和逻辑或运算符。如果&amp;&amp;的第一个运算数是false，则不再考虑第二个运算数，直接返回false。如果||的第一个运算数是true，那么也不再考虑第二个运算数。</p>
+<p>没有实践就没有发言权，demo如下：</p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a = <span class="literal">true</span>, b = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="built_in">test</span>(param)&#123;</span><br><span class="line">　　alert(param);</span><br><span class="line">&#125;</span><br><span class="line">a &amp;&amp; <span class="built_in">test</span>(<span class="number">1</span>);</span><br><span class="line">b &amp;&amp; <span class="built_in">test</span>(<span class="number">2</span>);</span><br><span class="line">a || <span class="built_in">test</span>(<span class="number">3</span>);</span><br><span class="line">b || <span class="built_in">test</span>(<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+<p>执行如上代码，事实上只执行了test(1)和test(4)，原理如上所述。</p>
+<p>a&amp;&amp;test(1)这种运算，其实我不知道是否有个专业的名词去描述它，在javascript森林群ToFishes同学称之为“惰性运算”，那么暂且叫它“惰性运算”吧，实际上相当于if(a){test(1)}。</p>
+<p>其中||运算符，有个很重要的应用就是给function的参数设置默认值，如：</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">(param)</span><span class="comment">&#123;</span><br><span class="line">    param = &#123;</span><br><span class="line">        name: param.name || "zhenn",</span><br><span class="line">        age: param.age || 25</span><br><span class="line">    &#125;</span></span><br><span class="line">    <span class="title">alert</span><span class="params">(param.name + " <span class="keyword">is</span> " + param.age + " years <span class="keyword">old</span>.")</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title">test</span><span class="params">(&#123;&#125;)</span>;</span></span><br></pre></td></tr></table></figure>
+
+	 
+	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
+<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://yoursite.com"><strong>zhenn</strong></a></span>
+</p>
+       	 
+      
+    </div>
+    <footer>
+      
+	 
+     		  
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>
+  </div>
+
+       		
+  
+  <div class="tags">
+    <a href="/tags/javascript/">javascript</a>
+  </div>
+
+     		  
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style addthis addthis_toolbox addthis_default_style" style="color: black">
+	<span class="jiathis_txt"></span>
+	<a class="jiathis_button_tools_1"></a>
+	<a class="jiathis_button_tools_2"></a>
+	<a class="jiathis_button_tools_3"></a>
+	<a class="jiathis_button_tools_4"></a>
+	<a href="http://www.jiathis.com/share?uid=1784645" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2022681" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+       	 
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=2022681" async=""></script>
+</section>
+
+</div>
+    </div>
+    <div class="tabbar" onload="divideTabBar()">
+	
+      <div class="tabbaritem"><a class="next" href="/">主页</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/archives/">归档</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/about/">关于我</a></div>
+    
+</div>
+
+
+  </div>
+</body>
+</html>

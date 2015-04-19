@@ -1,0 +1,259 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>悟透事件捕获和冒泡 | zhenn</title>
+  <meta name="author" content="zhenn">
+  
+  <meta name="description" content="对“捕获”和“冒泡”这两个概念，我想我们对冒泡更熟悉一些，因为在我们使用的所有浏览器中，都支持事件冒泡，即事件由子元素向祖先元素传播的，就 像气泡从水底向水面上浮一样。而在像firefox,chrome,safari这类所谓的标准浏览器中，事件传播还有个阶段，那就是捕获阶段，这个很少 有用武之地，所以被人疏忽遗忘也在所难免了，不常用不代表它不存在，本着科学严谨的态度，我们有必要去看一下它的庐山真面目。
+事实上，捕获阶段是一个和冒泡阶段完全相反的过程，即事件由祖先元素向子元素传播，和一个石子儿从水面向水底下沉一样，要说明的是在 IE，opera浏览器中，是不存在这个阶段的。">
+  
+  
+  <meta property="og:title" content="悟透事件捕获和冒泡"/>
+  <meta property="og:site_name" content="zhenn"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+   <link rel="apple-touch-icon" href="/icon.png" />
+   <link rel="shortcut icon" href="/favicon.png" >
+   <link rel="alternate" href="http://xxx.xx/atom.xml" title="zhenn" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+</head>
+
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar" class="alignleft">
+      <div class="navigationBar">
+        <a href="/">zhenn</a>
+      </div>
+    	
+  <div class="widget search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  <nav class="widget" id="menu">
+	<ul>
+    
+      <li class="cell"><a class="next" href="/">主页</a><li>
+    
+      <li class="cell"><a class="next" href="/archives/">归档</a><li>
+    
+      <li class="cell"><a class="next" href="/about/">关于我</a><li>
+    
+    </ul>
+</nav>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/技术/">技术</a><small>28</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/apache/" style="font-size: 10px;">apache</a><a href="/tags/css/" style="font-size: 16.67px;">css</a><a href="/tags/dom/" style="font-size: 16.67px;">dom</a><a href="/tags/javascript/" style="font-size: 20px;">javascript</a><a href="/tags/jslint/" style="font-size: 10px;">jslint</a><a href="/tags/node/" style="font-size: 16.67px;">node</a><a href="/tags/npm/" style="font-size: 16.67px;">npm</a><a href="/tags/shell/" style="font-size: 10px;">shell</a><a href="/tags/vim/" style="font-size: 13.33px;">vim</a><a href="/tags/webapp/" style="font-size: 10px;">webapp</a><a href="/tags/zencoding/" style="font-size: 10px;">zencoding</a><a href="/tags/代理/" style="font-size: 13.33px;">代理</a><a href="/tags/命令行/" style="font-size: 10px;">命令行</a><a href="/tags/性能/" style="font-size: 10px;">性能</a><a href="/tags/跨域/" style="font-size: 10px;">跨域</a>
+  </div>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最近发布</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2014/08/10/node及node模块升级/">node及node模块升级</a>
+      </li>
+    
+      <li>
+        <a href="/2014/02/10/mac版代理开发工具/">mac版代理开发工具</a>
+      </li>
+    
+      <li>
+        <a href="/2013/10/19/如何开发并发布node插件到npm平台/">如何开发并发布node插件到npm平台</a>
+      </li>
+    
+      <li>
+        <a href="/2013/04/30/使用apache开启proxy服务/">使用apache开启proxy服务</a>
+      </li>
+    
+      <li>
+        <a href="/2013/04/27/mac：zsh配置/">mac：zsh配置</a>
+      </li>
+    
+      <li>
+        <a href="/2013/04/19/移动端webapp：图片使用最佳实践/">移动端webapp：图片使用最佳实践</a>
+      </li>
+    
+      <li>
+        <a href="/2012/01/30/mac-jslint-for-vim/">mac:jslint_for_vim</a>
+      </li>
+    
+      <li>
+        <a href="/2012/01/19/mac配置vimzencoding/">mac配置vimzencoding</a>
+      </li>
+    
+      <li>
+        <a href="/2011/12/10/开发命令行工具（unix）/">开发命令行工具（unix）</a>
+      </li>
+    
+      <li>
+        <a href="/2011/11/19/使用npmf解决npm安装nodejs类库失败的问题/">使用npmf解决npm安装nodejs类库失败的问题</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+    	<footer id="footer" class="inner"><div class="copyright">
+  
+  &copy; 2015 zhenn
+  
+</div>
+
+
+
+</footer>
+    </aside>
+    
+    
+    <div id="hidden-navigationBar" class="navigationBar">
+      <a href="/">zhenn</a>
+    </div>
+    <div id="main-col" class="alignright">
+    <div id="wrapper">
+      
+
+
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+  <header>
+      
+      
+  
+    <h1 class="title">悟透事件捕获和冒泡</h1>
+  
+
+      <time datetime="2011-04-07T11:55:31.000Z"><a href="/2011/04/07/悟透事件捕获和冒泡/">2011-04-07</a></time>
+      
+  </header>
+    <div class="entry">
+      
+        <p>对“捕获”和“冒泡”这两个概念，我想我们对冒泡更熟悉一些，因为在我们使用的所有浏览器中，都支持事件冒泡，即事件由子元素向祖先元素传播的，就 像气泡从水底向水面上浮一样。而在像firefox,chrome,safari这类所谓的标准浏览器中，事件传播还有个阶段，那就是捕获阶段，这个很少 有用武之地，所以被人疏忽遗忘也在所难免了，不常用不代表它不存在，本着科学严谨的态度，我们有必要去看一下它的庐山真面目。</p>
+<p>事实上，捕获阶段是一个和冒泡阶段完全相反的过程，即事件由祖先元素向子元素传播，和一个石子儿从水面向水底下沉一样，要说明的是在 IE，opera浏览器中，是不存在这个阶段的。</p>
+<a id="more"></a>
+<p>从各浏览器提供的注册事件监听的方法中可见一斑，例如适用于ie,opera的attachEvent， 有两个参数，attachEvent(”on”+type,fn)，而适用于所谓标准浏览器的addEventListener则有三个参 数，addEventListener(type,fn,boolean)，前面两个参数不用解释，第三个参数boolean，就是决定注册事件发生在捕获阶段还是冒泡阶段。</p>
+<p>具体参考如下：</p>
+<ul>
+<li>true : 捕获阶段</li>
+<li>false : 冒泡阶段</li>
+</ul>
+<h3 id="demo演示：">demo演示：</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">content</span>=<span class="value">"text/html; charset=gbk"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span>无标题文档<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"description"</span> <span class="attribute">content</span>=<span class="value">""</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"keywords"</span> <span class="attribute">content</span>=<span class="value">""</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">   </span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span><br><span class="line">*<span class="rules">&#123;<span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0</span></span></span>;&#125;</span></span><br><span class="line"><span class="tag">h1</span><span class="rules">&#123;<span class="rule"><span class="attribute">text-align</span>:<span class="value">center</span></span>;<span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#666</span></span></span>;<span class="rule"><span class="attribute">margin-top</span>:<span class="value"><span class="number">18px</span></span></span>;&#125;</span></span><br><span class="line"><span class="id">#content</span><span class="rules">&#123;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">700px</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">250px</span></span></span>;<span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">5px</span> solid green</span></span>;<span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">20px</span> auto</span></span>;<span class="rule"><span class="attribute">position</span>:<span class="value">relative</span></span>;&#125;</span></span><br><span class="line"><span class="id">#obj1</span><span class="rules">&#123;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100px</span></span></span>;<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#d5d5d5</span></span></span>;&#125;</span></span><br><span class="line"><span class="id">#obj2</span><span class="rules">&#123;<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#777</span></span></span>;&#125;</span></span><br><span class="line"><span class="id">#obj3</span><span class="rules">&#123;<span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;<span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">200px</span></span></span>;<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">150px</span></span></span>;<span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">200px</span></span></span>;<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#555</span></span></span>;&#125;</span></span><br><span class="line"><span class="id">#obj4</span><span class="rules">&#123;<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100px</span></span></span>;<span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#999</span></span></span>;<span class="rule"><span class="attribute">margin-top</span>:<span class="value"><span class="number">50px</span></span></span>;&#125;</span></span><br><span class="line"><span class="class">.active</span><span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#f00</span></span></span>;&#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>悟透事件的捕获和冒泡<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"content"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"obj1"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h2</span>&gt;</span>元素a<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"obj2"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">h2</span>&gt;</span>元素b<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"obj3"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">h2</span>&gt;</span>元素c<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">   </span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"obj4"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h2</span>&gt;</span>元素d<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">   </span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="typescript"> </span><br><span class="line">    <span class="keyword">var</span> divs = <span class="built_in">document</span>.getElementById(<span class="string">"content"</span>).getElementsByTagName(<span class="string">"div"</span>);</span><br><span class="line">    <span class="keyword">var</span> count = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;divs.length;i++)&#123;</span><br><span class="line">        bindEvent(divs[i],<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="keyword">var</span> obj = <span class="built_in">document</span>.createTextNode(<span class="string">"-&gt;"</span>+count++);</span><br><span class="line">            <span class="keyword">this</span>.getElementsByTagName(<span class="string">"h2"</span>)[<span class="number">0</span>].insertBefore(obj,<span class="literal">null</span>);</span><br><span class="line">            <span class="keyword">this</span>.className = <span class="string">"active"</span>;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">       </span><br><span class="line">    <span class="comment">//取消事件冒泡</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">stopBubble</span><span class="params">(e)</span></span>&#123;</span><br><span class="line">        e = e||<span class="built_in">window</span>.event;</span><br><span class="line">        <span class="keyword">if</span>(e.stopPropagation)&#123;</span><br><span class="line">            e.stopPropagation();</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            e.cancelBubble = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="comment">//绑定事件</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bindEvent</span><span class="params">(elem,type,fn)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(elem.attachEvent)&#123;</span><br><span class="line">            <span class="keyword">var</span> typeRef = <span class="string">"_"</span> + <span class="keyword">type</span>;</span><br><span class="line">            <span class="keyword">if</span>(!elem[typeRef])&#123;</span><br><span class="line">                elem[typeRef] = [];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> elem[typeRef])&#123;</span><br><span class="line">                <span class="keyword">if</span>(elem[typeRef][i] == fn)&#123;</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            elem[typeRef].push(fn);</span><br><span class="line">            elem[<span class="string">"on"</span>+<span class="keyword">type</span>] = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> <span class="keyword">this</span>[typeRef])&#123;</span><br><span class="line">                    <span class="keyword">this</span>[typeRef][i].apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;   </span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            elem.addEventListener(<span class="keyword">type</span>,fn,<span class="literal">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="comment">//移除事件绑定</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">removeEvent</span><span class="params">(elem,type,fn)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(elem.detachEvent)&#123;</span><br><span class="line">            <span class="keyword">if</span>(elem[<span class="string">"_"</span>+<span class="keyword">type</span>])&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> elem[<span class="string">"_"</span>+<span class="keyword">type</span>])&#123;</span><br><span class="line">                    <span class="keyword">if</span>(elem[<span class="string">"_"</span>+<span class="keyword">type</span>][i] == fn)&#123;</span><br><span class="line">                        elem[<span class="string">"_"</span>+<span class="keyword">type</span>].splice(i,<span class="number">1</span>);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            elem.removeEventListener(<span class="keyword">type</span>,fn,<span class="literal">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在这个demo中，注册事件监听默认发生在冒泡阶段，由于“元素a”，“元素b”和“元素c”有嵌套关系，为了更好的表现冒泡过程，所以请先点击“元素 c”，会看到在各个浏览器中呈现的视觉效果是一致的，即事件是从c向a传播的，这也恰恰证明了所有浏览器都有冒泡这个过程的观点。经过上述的介绍，唯一让 你感到吃惊的应该是，从视觉效果上，“元素c”并没有包含在“元素a”和“元素b”里面，而表现出来的效果确实证明”click”事件依次从c经过b传播 到a的，反而包含“元素c”的“元素d”却没有响应click事件。事实上，这并不奇怪，因为事件冒泡和视觉上的布局结构是毫无关系的，这个冒泡过程仅仅 依赖于dom元素的html结构（即嵌套关系）.</p>
+<p>效果见下图：</p>
+<p><img src="/img/11.jpg" alt=""></p>
+<p>提及事件冒泡，那么不得不提“阻止事件冒泡”这个概念，因为我们最经常处理的任务就在于如何阻止事件的冒泡，来避免一些不必要的麻烦，关于这点，由于在之前的文章中单独讨论过，在此不再赘述，详见：阻止事件冒泡</p>
+<p>言归正传，为了更好的看到捕获和冒泡的区别，那么这时候需要你把这个demo另存到本地，然后找到如下图所示的代码片段：</p>
+<p><img src="/img/22.jpg" alt=""></p>
+<p>接下来，你要做的就是，把这个代码片段中false改为true，也就是说让注册事件监听在捕获阶段进行，依次ctrl+s，在各个浏览器中打开这个页 面，细心的你会发现，在firefox,chrome,safari中表现效果发生了变化（IE，opera中无变化，因为不存在捕获阶段），如下图：</p>
+<p><img src="/img/33.jpg" alt=""></p>
+<p>对比两张图片所显示的视觉效果，应该足以证明本文开头所提出的观点了，如果针对事件捕获和冒泡尚有任何疑问或不解，请留言或者我，交流研究！</p>
+
+	 
+	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
+<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://yoursite.com"><strong>zhenn</strong></a></span>
+</p>
+       	 
+      
+    </div>
+    <footer>
+      
+	 
+     		  
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>
+  </div>
+
+       		
+  
+  <div class="tags">
+    <a href="/tags/dom/">dom</a>, <a href="/tags/javascript/">javascript</a>
+  </div>
+
+     		  
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style addthis addthis_toolbox addthis_default_style" style="color: black">
+	<span class="jiathis_txt"></span>
+	<a class="jiathis_button_tools_1"></a>
+	<a class="jiathis_button_tools_2"></a>
+	<a class="jiathis_button_tools_3"></a>
+	<a class="jiathis_button_tools_4"></a>
+	<a href="http://www.jiathis.com/share?uid=1784645" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2022681" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+       	 
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=2022681" async=""></script>
+</section>
+
+</div>
+    </div>
+    <div class="tabbar" onload="divideTabBar()">
+	
+      <div class="tabbaritem"><a class="next" href="/">主页</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/archives/">归档</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/about/">关于我</a></div>
+    
+</div>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>移动端webapp：图片使用最佳实践 | zhenn</title>
+  <meta name="author" content="zhenn">
+  
+  <meta name="description" content="在开始本篇内容介绍前，请先回忆一下你在浏览包含很多大图片网页时的体验，尤其是在图片没有采用懒加载技术情况下，即打开网页时一次性将所有图片加载完毕，并完成渲染。这种情境下，相信不多数人都会发觉网页在首屏显示完整后，拖动网页右侧滚动条，浏览器却没有任何响应，在短暂的等待后，页面随之会向下滚动。
+另外需要说明，使用不同的浏览器，上述现象表现将稍有不同。比如使用Mozilla Firefox，网页的反应速度将稍快，这取决于浏览器厂商各自的设计哲学，firefox就会最大限度的利用系统空闲资源（CPU、内存）去支持页面渲染及交互。这样的设计一定程度上，提升了用户的浏览体验，但在遇到设计糟糕的网页时，势必拖慢系统。
+通过以上现象不难得出结论，web在使用大量图片时，将会让页面加载及渲染速度变的更慢。下文将深入介绍有关图片的相关知识、网页载入图片及渲染过程、图片优化对web性能的影响以及如何在网页中以最优的方式使用图片。">
+  
+  
+  <meta property="og:title" content="移动端webapp：图片使用最佳实践"/>
+  <meta property="og:site_name" content="zhenn"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+   <link rel="apple-touch-icon" href="/icon.png" />
+   <link rel="shortcut icon" href="/favicon.png" >
+   <link rel="alternate" href="http://xxx.xx/atom.xml" title="zhenn" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+</head>
+
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar" class="alignleft">
+      <div class="navigationBar">
+        <a href="/">zhenn</a>
+      </div>
+    	
+  <div class="widget search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  <nav class="widget" id="menu">
+	<ul>
+    
+      <li class="cell"><a class="next" href="/">主页</a><li>
+    
+      <li class="cell"><a class="next" href="/archives/">归档</a><li>
+    
+      <li class="cell"><a class="next" href="/about/">关于我</a><li>
+    
+    </ul>
+</nav>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/技术/">技术</a><small>28</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/apache/" style="font-size: 10px;">apache</a><a href="/tags/css/" style="font-size: 16.67px;">css</a><a href="/tags/dom/" style="font-size: 16.67px;">dom</a><a href="/tags/javascript/" style="font-size: 20px;">javascript</a><a href="/tags/jslint/" style="font-size: 10px;">jslint</a><a href="/tags/node/" style="font-size: 16.67px;">node</a><a href="/tags/npm/" style="font-size: 16.67px;">npm</a><a href="/tags/shell/" style="font-size: 10px;">shell</a><a href="/tags/vim/" style="font-size: 13.33px;">vim</a><a href="/tags/webapp/" style="font-size: 10px;">webapp</a><a href="/tags/zencoding/" style="font-size: 10px;">zencoding</a><a href="/tags/代理/" style="font-size: 13.33px;">代理</a><a href="/tags/命令行/" style="font-size: 10px;">命令行</a><a href="/tags/性能/" style="font-size: 10px;">性能</a><a href="/tags/跨域/" style="font-size: 10px;">跨域</a>
+  </div>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最近发布</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2014/08/10/node及node模块升级/">node及node模块升级</a>
+      </li>
+    
+      <li>
+        <a href="/2014/02/10/mac版代理开发工具/">mac版代理开发工具</a>
+      </li>
+    
+      <li>
+        <a href="/2013/10/19/如何开发并发布node插件到npm平台/">如何开发并发布node插件到npm平台</a>
+      </li>
+    
+      <li>
+        <a href="/2013/04/30/使用apache开启proxy服务/">使用apache开启proxy服务</a>
+      </li>
+    
+      <li>
+        <a href="/2013/04/27/mac：zsh配置/">mac：zsh配置</a>
+      </li>
+    
+      <li>
+        <a href="/2013/04/19/移动端webapp：图片使用最佳实践/">移动端webapp：图片使用最佳实践</a>
+      </li>
+    
+      <li>
+        <a href="/2012/01/30/mac-jslint-for-vim/">mac:jslint_for_vim</a>
+      </li>
+    
+      <li>
+        <a href="/2012/01/19/mac配置vimzencoding/">mac配置vimzencoding</a>
+      </li>
+    
+      <li>
+        <a href="/2011/12/10/开发命令行工具（unix）/">开发命令行工具（unix）</a>
+      </li>
+    
+      <li>
+        <a href="/2011/11/19/使用npmf解决npm安装nodejs类库失败的问题/">使用npmf解决npm安装nodejs类库失败的问题</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+    	<footer id="footer" class="inner"><div class="copyright">
+  
+  &copy; 2015 zhenn
+  
+</div>
+
+
+
+</footer>
+    </aside>
+    
+    
+    <div id="hidden-navigationBar" class="navigationBar">
+      <a href="/">zhenn</a>
+    </div>
+    <div id="main-col" class="alignright">
+    <div id="wrapper">
+      
+
+
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+  <header>
+      
+      
+  
+    <h1 class="title">移动端webapp：图片使用最佳实践</h1>
+  
+
+      <time datetime="2013-04-19T06:18:52.000Z"><a href="/2013/04/19/移动端webapp：图片使用最佳实践/">2013-04-19</a></time>
+      
+  </header>
+    <div class="entry">
+      
+        <p>在开始本篇内容介绍前，请先回忆一下你在浏览包含很多大图片网页时的体验，尤其是在图片没有采用懒加载技术情况下，即打开网页时一次性将所有图片加载完毕，并完成渲染。这种情境下，相信不多数人都会发觉网页在首屏显示完整后，拖动网页右侧滚动条，浏览器却没有任何响应，在短暂的等待后，页面随之会向下滚动。</p>
+<p>另外需要说明，使用不同的浏览器，上述现象表现将稍有不同。比如使用Mozilla Firefox，网页的反应速度将稍快，这取决于浏览器厂商各自的设计哲学，firefox就会最大限度的利用系统空闲资源（CPU、内存）去支持页面渲染及交互。这样的设计一定程度上，提升了用户的浏览体验，但在遇到设计糟糕的网页时，势必拖慢系统。</p>
+<p>通过以上现象不难得出结论，web在使用大量图片时，将会让页面加载及渲染速度变的更慢。下文将深入介绍有关图片的相关知识、网页载入图片及渲染过程、图片优化对web性能的影响以及如何在网页中以最优的方式使用图片。</p>
+<a id="more"></a>
+<h2 id="一，网页载入图片及渲染过程">一，网页载入图片及渲染过程</h2><h3 id="1，图片的载入">1，图片的载入</h3><p>网页在首次加载远程图片后，在特定条件下（用户未禁止浏览器cache），浏览器将把它缓存在设备的硬盘中，在远程请求再次使用时，会按照http响应头（304）适时从硬盘中直接读取。</p>
+<p>需要注意，在客户端中使用appcache技术，将忽略发起远程请求的步骤，直接从本地获取图片.</p>
+<h3 id="2，渲染过程">2，渲染过程</h3><p>无论图片是否缓存在本地存储设备，web在渲染该图片时，均会将图片预先调入内存。然后由CPU从内存（RAM，随机存储器）中读取图片相关信息进行解码运算，并将结果通过总线 (bus) 进入GPU（图像处理器），再经过显示芯片组存入显存，之后便是数字信号到模拟信号的转化工作，进而将图片在显示器上显示出来。</p>
+<p>通常情况下，静态图片的解码工作全部由CPU完成，部分2D、3D动态图片渲染才需要GPU的协助。因此，在网页上使用的静态图片的渲染工作，负载在最大的将是CPU和内存。 </p>
+<p>在上述过程中，有些特殊情况需要说明，比如在网页中使用多张相同图片时，将会使用到内存中的高速缓存器（cache），它不同于传统意义上内存（RAM），距离CPU更近异步，理所当然的传输速度更快。即CPU解码运算前，会先从cache中搜索，若存在相同的数据，则直接读取并传输给显存。但这仅仅对通过src方式载入的图片生效，而使用dataURI的图片，本身已经是base64编码，因此并不会存入cache，这也就是使用dataURI更加消耗CPU资源的原因之一。当然，使用dataURI也有它的独特优势，将在下文中提到。</p>
+<h2 id="二，图片占用内存大小">二，图片占用内存大小</h2><p>名称约定：</p>
+<ul>
+<li>图片体积，由图片尺寸及显示质量决定，体积大小通过photoshop等图形处理工具可压缩。</li>
+<li>图片内存，即图片在内存中占用的空间大小</li>
+</ul>
+<p>人们对于图片体积的认识比较清晰明目，因为只要通过图形软件压缩其显示质量，就可以明显看到体积会减小。因此由于思维惯性，往往就认为图片体积有多大，在内存中就会占用多大的空间。</p>
+<p>然而事实并非如此，跟图片体积不同，图片内存大小取决于图片尺寸（宽、高）和设备中每像素所占字节数。具体的计算公式为：<code>“内存大小 = 宽 * 高 * 字节数/像素”</code></p>
+<p>公式中宽高通过查看图片即可看到，而每像素字节数则无从查起，不过可以想象到在不同的设备，每像素字节数肯定是不同的。查阅了大量资料，发现每像素的字节数跟设备色深（color depth）相关</p>
+<p>具体计算方法如下:</p>
+<ul>
+<li>“每像素字节 = 色深 / 8”</li>
+<li>“色深 = log以2为底设备颜色数的对数”</li>
+</ul>
+<p>久违的数学运算知识啊，有些晦涩难懂。举例来说，如果设备颜色数为65536，即2的16次方，则可以推得设备的色深为16，进而计算得出每像素字节数为16/8 = 2。</p>
+<p>计算方法已找到，然而设备的颜色数又如何得知呢？我翻遍了电脑及手机的所有设置项，均未果。无奈之下，又google搜索了color depth，意外的发现原来通过javascript即可获得colorDepth的数值，封装在screen对象之下：</p>
+<p><code>screen.colorDepth</code></p>
+<p>有这样快捷的方法可以检测到色深，便可以忽略查看设备颜色数了，进而获取到目标设备的每像素字节数。比如我通过以上方法，获得了一些常用设备的每像素字节数。</p>
+<p><img src="/img/888.jpg" alt=""></p>
+<p>万事俱备，现在可以很方便地计算一张图片在特定设备占用内存的情况。比如一张图片尺寸为 1024 <em> 1025 ，在mac（非retina显示屏）中占用内存为 1024 </em> 1025 <em> 3 = 3,148,800 B，约合3MB，同样一张图片在索爱 LT18i 中，将占用内存为 1024 </em> 1025 * 4 B，约合4MB。</p>
+<p>计算准则在IOS中略有不同，在IOS中图片将会被缩放到2的N次方大小，因此上述图片在iphone4中所占内存情况将和 1024 <em> 2048 尺寸的图片相同，即 1024 </em> 2048 * 4B = 8MB。</p>
+<p>总结：尽管在不同的设备，每像素字节数不同，这导致图片所占内存并不固定。但在固定设备中，图片数量越多，尺寸越大，内存消耗就越大。</p>
+<h2 id="三，图片性能及最佳实践">三，图片性能及最佳实践</h2><p>通过以上对web使用图片过程的描述，可以很清晰的看出，为了降低图片加载及渲染对web性能影响，需要从图片体积和cpu、内存占用率着力。很明显地，体积越大的图片意味着需要消耗更多的带宽资源，并且使图片在页面中的渲染时间点更加滞后，另外一方面也会占用更多的CPU、内存使用率，对于网页的整体速率及性能，将产生极其不利的影响。尤其在是移动端硬件（CPU、内存较低）及网络环境下（带宽有限），解决图片使用的问题则显得更为重要。</p>
+<p>使用以下提到的方法和思路，将一定程度上帮助你解决使用图片带来的性能问题。</p>
+<h3 id="1，使用sprite合并背景图片">1，使用sprite合并背景图片</h3><p>众所周知的技术，通过合并多张图片，从来降低http请求数。单从网络传输量来看，不但节省多余的http请求头信息，合并后的图片体积也小于多张图片体积之和，当然这是在合理利用合并空间的基础上。</p>
+<p>优势明显的同时，还需注意不能过度合并图片，因为图片尺寸大小的增加会让图片在渲染时占用内存徒增，在低端的android手机上，有可能引发浏览器崩溃（crash）。</p>
+<h3 id="2，指定图片的宽高">2，指定图片的宽高</h3><p>在网页内容中引入的image标签，若图片尺寸已知情况下，最好添加width、height属性或在CSS中定义，可以减少页面的局部重渲染。原理很简单，当图片没有加载成功时，DOM树并不会停止构建，而图片一旦加载完成，则会使原图片区域重新渲染。</p>
+<p>如果image外层嵌套有父亲元素且设置宽高，则图片的尺寸可省略。</p>
+<h3 id="3，切割合理的平铺图片">3，切割合理的平铺图片</h3><p>在切割平铺图片时，2 <em> 2尺寸和8 </em> 8尺寸在体积上差不多，但2*2在图形渲染时，则消耗更多的CPU，一般推荐使用4px作为最小切割单元。</p>
+<h3 id="4，适应retina显示屏">4，适应retina显示屏</h3><p>为了适应ios retina显示屏，设计师会做两套规格的设计稿，尺寸分别为640<em>960 和  320</em>480。大尺寸为了切高清图片，小尺寸则是显示在网页中的真实尺寸。前端通常的做法是，使用高清图片作为原图片并缩小其尺寸为原来的二分之一，即可完美呈现高清图片。</p>
+<p>如果图片是作为背景，可通过background-size属性设置尺寸，若是img标签引用内容，则可通过width、height属性设置。</p>
+<p>在完美呈现视觉的同时，也带来了内存占用及网络传输的问题。真正使用的图片比显示的尺寸大一倍，也意味着图片体积和内存也提高了一倍，在retina设备中固然无可厚非，但在其他非retina显示设备中，则产生了极大资源浪费。</p>
+<p>解决之道在，是使用@media query。</p>
+<h3 id="5，避免使用gif等动态图片">5，避免使用gif等动态图片</h3><p>我不太清楚手机设备中是否配有GPU，但使用gif图一定是糟糕的决定，在手机系统中，渲染动态图片特别消耗CPU。如果一定要使用动态图像，比如loading状态，建议通过css3的animation，性能会稍好。</p>
+<h3 id="6，_适度使用dataURI">6， 适度使用dataURI</h3><p>使用base64编码格式的图片，可以减少额外的网络请求，并不意味着可以肆无忌惮的使用。同时你要清楚的知道，网页在渲染base64格式图片时，在内存中的高速缓存区不会被缓存，那么在网页中多处使用时，CPU的多余消耗要比增加一条http请求对网页性能影响更加严重。</p>
+<p>另外，图片经过base64编码后，要比图片本身体力大30%左右，即传输文本的量要比单独加载一张图片大一些。因此，正确的使用dataURI很有必要。一般情况下，只对网页中体积交小且仅单次使用的图标icon文件使用dataURI将是最优的方式。</p>
+<h3 id="7，按需加载图片">7，按需加载图片</h3><p>按需加载在前端已经不是一个新鲜的话题，在桌面端项目中已经得到普遍使用，即以img节点出现在浏览器可视区域为临界点分批加载图片，避免多度占用系统内存带来的卡屏现象。至于出现视口以外的图片，已经占用内存并在本页面关闭之前无法释放，html5没有提供任何的解决方案。</p>
+<p>在native技术体系中，则使用UITableViewCells来优化内存、性能及响应。作为一个html5开发者，只能望“N”兴叹了。</p>
+<h3 id="8，ios系统中对图像体积及内存的限制">8，ios系统中对图像体积及内存的限制</h3><p>在ios系统中开发webapp，要了解其对图像体积及内存限制的阀值，一旦达到临界点，浏览器将会crash。</p>
+<p>对于gif、png、tiff格式图像，内存占用少于256m时，图像总尺寸不得大于300像素，而占用内存大于等于256m时，图像总尺寸应该小于500像素。也就是说当占用内存小于256m情况下，确保你的图像总尺寸width  <em> height &gt;= 3 </em> 1024 * 1024。</p>
+<p>—</p>
+<p>以上就是本文相关内容，可能还不是很完整，待续！</p>
+<p>在大多数情况下，web中使用图片带来的性能问题不会出现，但是我希望在出现问题时（低端配置手机很有可能），你能从本人中找到相关解决问题的方法或思路。</p>
+
+	 
+	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
+<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://yoursite.com"><strong>zhenn</strong></a></span>
+</p>
+       	 
+      
+    </div>
+    <footer>
+      
+	 
+     		  
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>
+  </div>
+
+       		
+  
+  <div class="tags">
+    <a href="/tags/webapp/">webapp</a>, <a href="/tags/性能/">性能</a>
+  </div>
+
+     		  
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style addthis addthis_toolbox addthis_default_style" style="color: black">
+	<span class="jiathis_txt"></span>
+	<a class="jiathis_button_tools_1"></a>
+	<a class="jiathis_button_tools_2"></a>
+	<a class="jiathis_button_tools_3"></a>
+	<a class="jiathis_button_tools_4"></a>
+	<a href="http://www.jiathis.com/share?uid=1784645" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2022681" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+       	 
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=2022681" async=""></script>
+</section>
+
+</div>
+    </div>
+    <div class="tabbar" onload="divideTabBar()">
+	
+      <div class="tabbaritem"><a class="next" href="/">主页</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/archives/">归档</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/about/">关于我</a></div>
+    
+</div>
+
+
+  </div>
+</body>
+</html>

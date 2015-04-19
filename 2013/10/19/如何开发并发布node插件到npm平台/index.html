@@ -1,0 +1,321 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>如何开发并发布node插件到npm平台 | zhenn</title>
+  <meta name="author" content="zhenn">
+  
+  <meta name="description" content="无论是为了自己编写的node程序可以方便第三方使用（足够通用），还是仅仅出于对团队协作考虑（仅团队中使用），使用npm平台都是不错的选择，操作也很简介。
+一，在npm平台创建账号理所当然，当上传压缩包到一个公用平台，没有身份标识显然行不通。因此，第一步需要到npm官方网站注册账号，地址：https://www.npmjs.org/，记住你的name 和 pwd。
+二，编写node程序这里特殊说明，如果你想开发grunt插件，请使用grunt官方提供的创建插件方法初始化项目，具体请参考：http://www.gruntjs.org/docs/creating-plugins.html.
+通过这种方法，在package.json配置文件中会自动添加keyword：gruntplugin ，有了这个配置项即可保证你开发的npm模块被收集到grunt插件平台http://gruntjs.com/plugins
+若只是普通的node库，则忽略此步骤。">
+  
+  
+  <meta property="og:title" content="如何开发并发布node插件到npm平台"/>
+  <meta property="og:site_name" content="zhenn"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+   <link rel="apple-touch-icon" href="/icon.png" />
+   <link rel="shortcut icon" href="/favicon.png" >
+   <link rel="alternate" href="http://xxx.xx/atom.xml" title="zhenn" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+</head>
+
+
+<body>
+  <div id="content" class="inner">
+    <aside id="sidebar" class="alignleft">
+      <div class="navigationBar">
+        <a href="/">zhenn</a>
+      </div>
+    	
+  <div class="widget search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  <nav class="widget" id="menu">
+	<ul>
+    
+      <li class="cell"><a class="next" href="/">主页</a><li>
+    
+      <li class="cell"><a class="next" href="/archives/">归档</a><li>
+    
+      <li class="cell"><a class="next" href="/about/">关于我</a><li>
+    
+    </ul>
+</nav>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/技术/">技术</a><small>28</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/apache/" style="font-size: 10px;">apache</a><a href="/tags/css/" style="font-size: 16.67px;">css</a><a href="/tags/dom/" style="font-size: 16.67px;">dom</a><a href="/tags/javascript/" style="font-size: 20px;">javascript</a><a href="/tags/jslint/" style="font-size: 10px;">jslint</a><a href="/tags/node/" style="font-size: 16.67px;">node</a><a href="/tags/npm/" style="font-size: 16.67px;">npm</a><a href="/tags/shell/" style="font-size: 10px;">shell</a><a href="/tags/vim/" style="font-size: 13.33px;">vim</a><a href="/tags/webapp/" style="font-size: 10px;">webapp</a><a href="/tags/zencoding/" style="font-size: 10px;">zencoding</a><a href="/tags/代理/" style="font-size: 13.33px;">代理</a><a href="/tags/命令行/" style="font-size: 10px;">命令行</a><a href="/tags/性能/" style="font-size: 10px;">性能</a><a href="/tags/跨域/" style="font-size: 10px;">跨域</a>
+  </div>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最近发布</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2014/08/10/node及node模块升级/">node及node模块升级</a>
+      </li>
+    
+      <li>
+        <a href="/2014/02/10/mac版代理开发工具/">mac版代理开发工具</a>
+      </li>
+    
+      <li>
+        <a href="/2013/10/19/如何开发并发布node插件到npm平台/">如何开发并发布node插件到npm平台</a>
+      </li>
+    
+      <li>
+        <a href="/2013/04/30/使用apache开启proxy服务/">使用apache开启proxy服务</a>
+      </li>
+    
+      <li>
+        <a href="/2013/04/27/mac：zsh配置/">mac：zsh配置</a>
+      </li>
+    
+      <li>
+        <a href="/2013/04/19/移动端webapp：图片使用最佳实践/">移动端webapp：图片使用最佳实践</a>
+      </li>
+    
+      <li>
+        <a href="/2012/01/30/mac-jslint-for-vim/">mac:jslint_for_vim</a>
+      </li>
+    
+      <li>
+        <a href="/2012/01/19/mac配置vimzencoding/">mac配置vimzencoding</a>
+      </li>
+    
+      <li>
+        <a href="/2011/12/10/开发命令行工具（unix）/">开发命令行工具（unix）</a>
+      </li>
+    
+      <li>
+        <a href="/2011/11/19/使用npmf解决npm安装nodejs类库失败的问题/">使用npmf解决npm安装nodejs类库失败的问题</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+    	<footer id="footer" class="inner"><div class="copyright">
+  
+  &copy; 2015 zhenn
+  
+</div>
+
+
+
+</footer>
+    </aside>
+    
+    
+    <div id="hidden-navigationBar" class="navigationBar">
+      <a href="/">zhenn</a>
+    </div>
+    <div id="main-col" class="alignright">
+    <div id="wrapper">
+      
+
+
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+  <header>
+      
+      
+  
+    <h1 class="title">如何开发并发布node插件到npm平台</h1>
+  
+
+      <time datetime="2013-10-19T06:34:57.000Z"><a href="/2013/10/19/如何开发并发布node插件到npm平台/">2013-10-19</a></time>
+      
+  </header>
+    <div class="entry">
+      
+        <p>无论是为了自己编写的node程序可以方便第三方使用（足够通用），还是仅仅出于对团队协作考虑（仅团队中使用），使用npm平台都是不错的选择，操作也很简介。</p>
+<h2 id="一，在npm平台创建账号">一，在npm平台创建账号</h2><p>理所当然，当上传压缩包到一个公用平台，没有身份标识显然行不通。因此，第一步需要到npm官方网站注册账号，地址：<a href="https://www.npmjs.org/" target="_blank" rel="external">https://www.npmjs.org/</a>，记住你的name 和 pwd。</p>
+<h2 id="二，编写node程序">二，编写node程序</h2><p>这里特殊说明，如果你想开发grunt插件，请使用grunt官方提供的创建插件方法初始化项目，具体请参考：<a href="http://www.gruntjs.org/docs/creating-plugins.html" target="_blank" rel="external">http://www.gruntjs.org/docs/creating-plugins.html</a>.</p>
+<p>通过这种方法，在package.json配置文件中会自动添加keyword：gruntplugin ，有了这个配置项即可保证你开发的npm模块被收集到grunt插件平台<a href="http://gruntjs.com/plugins" target="_blank" rel="external">http://gruntjs.com/plugins</a></p>
+<p>若只是普通的node库，则忽略此步骤。</p>
+<a id="more"></a>
+<h2 id="三，上传操作">三，上传操作</h2><p>进入项目目录，首先通过npm adduser命令添加创建者相关信息，依次录入name、pwd及email。然后，执行npm publish命令即可将项目上传至npm。</p>
+<p>若你所知，别人通过<code>npm install &lt;你的项目成名&gt;</code>即可使用你所贡献的node程序包。</p>
+<p>——补录——<br>npm其他常用api：<br>npm link  把当前目录代码当做全局模块使用，开发npm模块时必用<br>npm init  初始化一个npm模块，其实仅仅创建了package.json<br>npm update 更新node模块</p>
+<p>多次发布，需要保证package中版本号递增，否则会发布失败.</p>
+<p>——补录（2015-03-21）—— </p>
+<h1 id="如何让开发的node模块通过全局shell命令调用？">如何让开发的node模块通过全局shell命令调用？</h1><p>基本钩子即可实现，如开发monkey模块，在package.json中约定bin配置如下：</p>
+<p><code>&quot;bin&quot; : {
+        &quot;monkey&quot; : &quot;./bin/monkey&quot;
+  }</code></p>
+<p>如果monkey模块只有一个可执行命令，即monkey，可简写为</p>
+<p><code>&quot;bin&quot; : &quot;./bin/monkey&quot;</code></p>
+<p>其中，./bin/monkey为可执行文件，并声明其执行环境，比如</p>
+<p><code>#!/usr/local/bin/node --harmony</code></p>
+<p>标示该文件通过node的可兼容模式运行（node中使用ES6的标准，需要—harmony），否则会有语法报错！<br>通过以上配置，在本地开发模块时，通过npm link即可直接通过monkey命令调起./bin/monkey。同样的，在发布到npm官方后，他人通过npm install monkey亦可直接使用monkey命令了！</p>
+<h2 id="package-json中其他约定">package.json中其他约定</h2><ul>
+<li>name、version<ul>
+<li>必须字段，否则无法通过npm install安装</li>
+</ul>
+</li>
+<li>keywords<ul>
+<li>关键字</li>
+<li>字符串组成的数字，便于在npm上检索到</li>
+</ul>
+</li>
+<li>description<ul>
+<li>项目描述</li>
+<li>同样便于在npm上检索</li>
+</ul>
+</li>
+<li>homepage<ul>
+<li>官网url</li>
+</ul>
+</li>
+<li>bugs<ul>
+<li>提交问题的网址、email，便于使用者反馈问题</li>
+<li>格式：json { “url” : “xxx” , “email” : “xxxx” }</li>
+</ul>
+</li>
+<li>license<ul>
+<li>许可证，让别人知道使用的权利和限制</li>
+</ul>
+</li>
+<li>author<ul>
+<li>作者</li>
+</ul>
+</li>
+<li>contributors<ul>
+<li>贡献者</li>
+<li>数组</li>
+</ul>
+</li>
+<li>main<ul>
+<li>标示项目的入口</li>
+<li>使用者通过require(‘xx’)，可访问入口文件下所有api</li>
+</ul>
+</li>
+<li>man<ul>
+<li>指定文档文件，调用man xx时调用的文件</li>
+<li>路径 | 路径数组</li>
+</ul>
+</li>
+<li>repository<ul>
+<li>指定项目的仓库类型及地址</li>
+<li>如：{  “type” : “git”,  “url” : “<a href="http://github.com/isaacs/npm.git" target="_blank" rel="external">http://github.com/isaacs/npm.git</a>“ }</li>
+</ul>
+</li>
+<li>dependencies<ul>
+<li>项目依赖,json</li>
+<li>当npm link或install时，将自动下载安装</li>
+</ul>
+</li>
+</ul>
+
+	 
+	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
+<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://yoursite.com"><strong>zhenn</strong></a></span>
+</p>
+       	 
+      
+    </div>
+    <footer>
+      
+	 
+     		  
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>
+  </div>
+
+       		
+  
+  <div class="tags">
+    <a href="/tags/npm/">npm</a>
+  </div>
+
+     		  
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style addthis addthis_toolbox addthis_default_style" style="color: black">
+	<span class="jiathis_txt"></span>
+	<a class="jiathis_button_tools_1"></a>
+	<a class="jiathis_button_tools_2"></a>
+	<a class="jiathis_button_tools_3"></a>
+	<a class="jiathis_button_tools_4"></a>
+	<a href="http://www.jiathis.com/share?uid=1784645" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2022681" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+       	 
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=2022681" async=""></script>
+</section>
+
+</div>
+    </div>
+    <div class="tabbar" onload="divideTabBar()">
+	
+      <div class="tabbaritem"><a class="next" href="/">主页</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/archives/">归档</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/about/">关于我</a></div>
+    
+</div>
+
+
+  </div>
+</body>
+</html>
