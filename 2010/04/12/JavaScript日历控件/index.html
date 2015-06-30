@@ -1,243 +1,566 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
 <head>
-  <meta charset="utf-8">
   
-  <title>JavaScript日历控件 | zhenn</title>
-  <meta name="author" content="zhenn">
-  
-  <meta name="description" content="由于项目需要，写了个日历控件，仿照windows的日历写的，可以添加备忘录，备忘录操作所存取数据，没有数据库的支持，只在js中建立一个数组来存储，故而在不刷新页面的情况下，可以进行添加查看备忘录操作，如需和服务器进行交互，使用ajax也十分的方便！">
-  
-  
-  <meta property="og:title" content="JavaScript日历控件"/>
-  <meta property="og:site_name" content="zhenn"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
-    <meta property="og:image" content="undefined"/>
-  
-   <link rel="apple-touch-icon" href="/icon.png" />
-   <link rel="shortcut icon" href="/favicon.png" >
-   <link rel="alternate" href="http://xxx.xx/atom.xml" title="zhenn" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+
+
+  <meta name="keywords" content="javascript," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    analytics: {
+      google: ''
+    },
+    sidebar: 'post'
+  };
+</script>
+
+
+
+
+  <title> JavaScript日历控件 // zhenn's note </title>
 </head>
 
-
 <body>
-  <div id="content" class="inner">
-    <aside id="sidebar" class="alignleft">
-      <div class="navigationBar">
-        <a href="/">zhenn</a>
-      </div>
-    	
-  <div class="widget search">
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="text" name="q" results="0" placeholder="搜索">
-    <input type="hidden" name="q" value="site:yoursite.com">
-  </form>
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">zhenn's note</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
 </div>
 
-  <nav class="widget" id="menu">
-	<ul>
-    
-      <li class="cell"><a class="next" href="/">主页</a><li>
-    
-      <li class="cell"><a class="next" href="/archives/">归档</a><li>
-    
-      <li class="cell"><a class="next" href="/about/">关于我</a><li>
-    
+<div class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
     </ul>
-</nav>
-
   
-<div class="widget tag">
-  <h3 class="title">分类</h3>
-  <ul class="entry">
-  
-    <li><a href="/categories/技术/">技术</a><small>29</small></li>
-  
-  </ul>
-</div>
 
-
-  
-<div class="widget tagcloud">
-  <h3 class="title">标签云</h3>
-  <div class="entry">
-    <a href="/tags/apache/" style="font-size: 10px;">apache</a><a href="/tags/css/" style="font-size: 16.67px;">css</a><a href="/tags/dom/" style="font-size: 16.67px;">dom</a><a href="/tags/javascript/" style="font-size: 20px;">javascript</a><a href="/tags/jslint/" style="font-size: 10px;">jslint</a><a href="/tags/mac/" style="font-size: 10px;">mac</a><a href="/tags/node/" style="font-size: 16.67px;">node</a><a href="/tags/npm/" style="font-size: 16.67px;">npm</a><a href="/tags/shell/" style="font-size: 10px;">shell</a><a href="/tags/vim/" style="font-size: 13.33px;">vim</a><a href="/tags/webapp/" style="font-size: 10px;">webapp</a><a href="/tags/zencoding/" style="font-size: 10px;">zencoding</a><a href="/tags/代理/" style="font-size: 13.33px;">代理</a><a href="/tags/命令行/" style="font-size: 10px;">命令行</a><a href="/tags/性能/" style="font-size: 10px;">性能</a><a href="/tags/跨域/" style="font-size: 10px;">跨域</a>
-  </div>
-</div>
-
-
-  
-<div class="widget tag">
-  <h3 class="title">最近发布</h3>
-  <ul class="entry">
-    
-      <li>
-        <a href="/2015/06/28/Mac Mail配置QQ企业邮箱/">Mac Mail配置QQ企业邮箱</a>
-      </li>
-    
-      <li>
-        <a href="/2014/08/10/node及node模块升级/">node及node模块升级</a>
-      </li>
-    
-      <li>
-        <a href="/2014/02/10/mac版代理开发工具/">mac版代理开发工具</a>
-      </li>
-    
-      <li>
-        <a href="/2013/10/19/如何开发并发布node插件到npm平台/">如何开发并发布node插件到npm平台</a>
-      </li>
-    
-      <li>
-        <a href="/2013/04/30/使用apache开启proxy服务/">使用apache开启proxy服务</a>
-      </li>
-    
-      <li>
-        <a href="/2013/04/27/mac：zsh配置/">mac：zsh配置</a>
-      </li>
-    
-      <li>
-        <a href="/2013/04/19/移动端webapp：图片使用最佳实践/">移动端webapp：图片使用最佳实践</a>
-      </li>
-    
-      <li>
-        <a href="/2012/01/30/mac-jslint-for-vim/">mac:jslint_for_vim</a>
-      </li>
-    
-      <li>
-        <a href="/2012/01/19/mac配置vimzencoding/">mac配置vimzencoding</a>
-      </li>
-    
-      <li>
-        <a href="/2011/12/10/开发命令行工具（unix）/">开发命令行工具（unix）</a>
-      </li>
-    
-  </ul>
-</div>
-
-
-    	<footer id="footer" class="inner"><div class="copyright">
-  
-  &copy; 2015 zhenn
   
 </div>
 
 
-
-</footer>
-    </aside>
-    
-    
-    <div id="hidden-navigationBar" class="navigationBar">
-      <a href="/">zhenn</a>
+      </div>
     </div>
-    <div id="main-col" class="alignright">
-    <div id="wrapper">
-      
 
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
 
-<article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
+  <div id="posts" class="posts-expand">
     
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-  <header>
-      
-      
-  
-    <h1 class="title">JavaScript日历控件</h1>
-  
 
-      <time datetime="2010-04-12T04:37:21.000Z"><a href="/2010/04/12/JavaScript日历控件/">2010-04-12</a></time>
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
       
-  </header>
-    <div class="entry">
+      
+        <h1 class="post-title">
+          
+          
+            
+              JavaScript日历控件
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2010-04-12
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术/">技术</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2010/04/12/JavaScript日历控件/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2010/04/12/JavaScript日历控件/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
       
         <p>由于项目需要，写了个日历控件，仿照windows的日历写的，可以添加备忘录，备忘录操作所存取数据，没有数据库的支持，只在js中建立一个数组来存储，故而在不刷新页面的情况下，可以进行添加查看备忘录操作，如需和服务器进行交互，使用ajax也十分的方便！</p>
 <p><img src="/img/5.jpg" alt=""><br><a id="more"></a></p>
 <p>代码实现：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.w3.org/1999/xhtml"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">content</span>=<span class="value">"text/html; charset=utf-8"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span>JavaScript日历控件<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span><br><span class="line">*<span class="rules">&#123; <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0</span></span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>;&#125;</span></span><br><span class="line"><span class="tag">h1</span><span class="rules">&#123; <span class="rule"><span class="attribute">text-align</span>:<span class="value">center</span></span>; <span class="rule"><span class="attribute">margin-top</span>:<span class="value"><span class="number">50px</span></span></span>; &#125;</span></span><br><span class="line"><span class="id">#content</span><span class="rules">&#123; <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">400px</span></span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">30px</span> auto</span></span>; <span class="rule"><span class="attribute">-webkit-box-shadow</span>:<span class="value"><span class="number">0</span> <span class="number">0</span> <span class="number">8px</span> <span class="hexcolor">#333</span></span></span>; <span class="rule"><span class="attribute">-moz-box-shadow</span>:<span class="value"><span class="number">0</span> <span class="number">0</span> <span class="number">8px</span> <span class="hexcolor">#333</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">30px</span></span></span>; <span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;&#125;</span></span><br><span class="line"><span class="class">.timemain</span><span class="rules">&#123; <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">350px</span></span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span> auto</span></span>;  <span class="rule"><span class="attribute">overflow</span>:<span class="value">hidden</span></span>;&#125;</span></span><br><span class="line"><span class="class">.timemain</span> <span class="class">.selectDate</span><span class="rules">&#123; <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">20px</span></span></span>;&#125;</span></span><br><span class="line"><span class="class">.timemain</span> <span class="class">.selectDate</span> <span class="tag">select</span><span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">160px</span></span></span>;&#125;</span></span><br><span class="line"><span class="class">.timemain</span> <span class="class">.selectDate</span> <span class="tag">em</span><span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>; <span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#000</span></span></span>; <span class="rule"><span class="attribute">margin-left</span>:<span class="value"><span class="number">6px</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">160px</span></span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">17px</span></span></span>; *<span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">20px</span></span></span>; <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid <span class="hexcolor">#a5acb2</span></span></span>; <span class="rule"><span class="attribute">padding-left</span>:<span class="value"><span class="number">4px</span></span></span>; <span class="rule"><span class="attribute">font-style</span>:<span class="value">normal</span></span>;&#125;</span></span><br><span class="line"><span class="class">.timemain</span> <span class="class">.selectDate</span> <span class="class">.btn</span><span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">15px</span></span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">2px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">2px</span></span></span>; <span class="rule"><span class="attribute">display</span>:<span class="value">inline</span></span>;&#125;</span></span><br><span class="line"><span class="class">.timemain</span> <span class="class">.timeForm</span><span class="rules">&#123; <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid <span class="hexcolor">#d5d5d5</span></span></span>; <span class="rule"><span class="attribute">margin-top</span>:<span class="value"><span class="number">9px</span></span></span>; <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">14px</span></span></span>; <span class="rule"><span class="attribute">padding-bottom</span>:<span class="value"><span class="number">3px</span></span></span>;&#125;</span></span><br><span class="line"><span class="class">.timemain</span> <span class="class">.timeForm</span> <span class="class">.title</span> <span class="tag">th</span><span class="rules">&#123; <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#bfcddb</span></span></span>; <span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#fff</span></span></span>;&#125;</span></span><br><span class="line"><span class="class">.timemain</span> <span class="class">.timeForm</span> <span class="tag">td</span><span class="rules">&#123; <span class="rule"><span class="attribute">cursor</span>:<span class="value">pointer</span></span>;&#125;</span></span><br><span class="line"><span class="class">.timemain</span> <span class="class">.timeForm</span> <span class="tag">td</span><span class="class">.current</span><span class="rules">&#123; <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#ccc</span></span></span>; <span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#fff</span></span></span>;&#125;</span></span><br><span class="line"><span class="class">.timemain</span> <span class="class">.memo</span><span class="rules">&#123; <span class="rule"><span class="attribute">margin-top</span>:<span class="value"><span class="number">10px</span></span></span>;&#125;</span></span><br><span class="line"><span class="class">.timemain</span> <span class="class">.memo</span> <span class="tag">input</span><span class="rules">&#123; <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">342px</span></span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">80px</span></span></span>; <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid <span class="hexcolor">#d5d5d5</span></span></span>; <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">12px</span></span></span>; <span class="rule"><span class="attribute">font-family</span>:<span class="value"><span class="string">"宋体"</span></span></span>; <span class="rule"><span class="attribute">line-height</span>:<span class="value"><span class="number">16px</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">3px</span></span></span>; <span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#555</span></span></span>;&#125;</span></span><br><span class="line"><span class="id">#save</span><span class="rules">&#123; <span class="rule"><span class="attribute">float</span>:<span class="value">right</span></span>; <span class="rule"><span class="attribute">margin-top</span>:<span class="value"><span class="number">12px</span></span></span>; <span class="rule"><span class="attribute">cursor</span>:<span class="value">pointer</span></span>;&#125;</span></span><br><span class="line"><span class="id">#copyright</span><span class="rules">&#123; <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">460px</span></span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">30px</span> auto</span></span>;&#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>JavaScript日历控件<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"content"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">form</span> <span class="attribute">name</span>=<span class="value">"date"</span> <span class="attribute">method</span>=<span class="value">"post"</span> <span class="attribute">action</span>=<span class="value">""</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"timemain"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"selectDate"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">select</span> <span class="attribute">name</span>=<span class="value">"selectMonth"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"1"</span>&gt;</span>一月<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"2"</span>&gt;</span>二月<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"3"</span>&gt;</span>三月<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"4"</span>&gt;</span>四月<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"5"</span>&gt;</span>五月<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"6"</span>&gt;</span>六月<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"7"</span>&gt;</span>七月<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"8"</span>&gt;</span>八月<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"9"</span>&gt;</span>九月<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"10"</span>&gt;</span>十月<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"11"</span>&gt;</span>十一月<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"12"</span>&gt;</span>十二月<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">em</span> <span class="attribute">id</span>=<span class="value">"yearInfo"</span>&gt;</span><span class="tag">&lt;/<span class="title">em</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"btn"</span>&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"http://images.cnblogs.com/cnblogs_com/zhenn/283408/r_beforebtn.jpg"</span> <span class="attribute">alt</span>=<span class="value">""</span> <span class="attribute">id</span>=<span class="value">"prevYear"</span> /&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"http://images.cnblogs.com/cnblogs_com/zhenn/283408/r_afterbtn.jpg"</span> <span class="attribute">alt</span>=<span class="value">""</span> <span class="attribute">id</span>=<span class="value">"nextYear"</span> /&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"timeForm"</span> <span class="attribute">id</span>=<span class="value">"timeForm"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"memo"</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"memo"</span> <span class="attribute">value</span>=<span class="value">"添加备忘录"</span> /&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">img</span> <span class="attribute">id</span>=<span class="value">"save"</span> <span class="attribute">src</span>=<span class="value">"http://images.cnblogs.com/cnblogs_com/zhenn/283408/r_savabtn.jpg"</span> <span class="attribute">alt</span>=<span class="value">""</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"copyright"</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.cnblogs.com/zhenn/"</span>&gt;</span>振之博客<span class="tag">&lt;/<span class="title">a</span>&gt;</span> 版权所有 转载请说明出处<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="nix"></span><br><span class="line"><span class="comment">/*注册事件监听器*/</span></span><br><span class="line">function addEvent(elem,eventType,fn)&#123;</span><br><span class="line">    <span class="keyword">if</span>(!elem.addEventListener&amp;&amp;!elem.attachEvent)&#123;</span><br><span class="line">        return <span class="constant">false</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(elem.addEventListener)&#123;   </span><br><span class="line">        <span class="comment">/*如果是w3c浏览器*/</span></span><br><span class="line">        elem.addEventListener(eventType,fn,<span class="constant">false</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(elem.attachEvent)&#123;        </span><br><span class="line">        <span class="comment">/*如果是ie*/</span></span><br><span class="line">        elem.attachEvent(<span class="string">"on"</span>+eventType,fn);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">addEvent(window,<span class="string">"load"</span>,function()&#123;</span><br><span class="line">    <span class="comment">/*输出表格*/</span></span><br><span class="line">    var <span class="variable">timeForm =</span> document.getElementById(<span class="string">"timeForm"</span>);</span><br><span class="line">    timeForm.<span class="variable">innerHTML =</span> '&lt;table <span class="variable">width=</span><span class="string">"100%"</span> <span class="variable">border=</span><span class="string">"0"</span> <span class="variable">cellspacing=</span><span class="string">"0"</span> <span class="variable">cellpadding=</span><span class="string">"0"</span> <span class="variable">style=</span><span class="string">"margin-bottom:3px;"</span>&gt;&lt;tr <span class="variable">class=</span><span class="string">"title"</span>&gt;&lt;th <span class="variable">height=</span><span class="string">"28"</span> <span class="variable">align=</span><span class="string">"center"</span> <span class="variable">valign=</span><span class="string">"middle"</span>&gt;日&lt;/th&gt;&lt;th <span class="variable">height=</span><span class="string">"28"</span> <span class="variable">align=</span><span class="string">"center"</span> <span class="variable">valign=</span><span class="string">"middle"</span>&gt;一&lt;/th&gt;&lt;th <span class="variable">height=</span><span class="string">"28"</span> <span class="variable">align=</span><span class="string">"center"</span> <span class="variable">valign=</span><span class="string">"middle"</span>&gt;二&lt;/th&gt;&lt;th <span class="variable">height=</span><span class="string">"28"</span> <span class="variable">align=</span><span class="string">"center"</span> <span class="variable">valign=</span><span class="string">"middle"</span>&gt;三&lt;/th&gt;&lt;th <span class="variable">height=</span><span class="string">"28"</span> <span class="variable">align=</span><span class="string">"center"</span> <span class="variable">valign=</span><span class="string">"middle"</span>&gt;四&lt;/th&gt;&lt;th <span class="variable">height=</span><span class="string">"28"</span> <span class="variable">align=</span><span class="string">"center"</span> <span class="variable">valign=</span><span class="string">"middle"</span>&gt;五&lt;/th&gt;&lt;th <span class="variable">height=</span><span class="string">"28"</span> <span class="variable">align=</span><span class="string">"center"</span> <span class="variable">valign=</span><span class="string">"middle"</span>&gt;六&lt;/th&gt;&lt;/tr&gt;&lt;/table&gt;';</span><br><span class="line">    var <span class="variable">objTable =</span> document.createElement(<span class="string">"table"</span>);</span><br><span class="line">    objTable.setAttribute(<span class="string">"width"</span>,<span class="string">"100%"</span>);</span><br><span class="line">    objTable.setAttribute(<span class="string">"border"</span>,<span class="string">"0"</span>);</span><br><span class="line">    objTable.setAttribute(<span class="string">"cellspacing"</span>,<span class="string">"0"</span>);</span><br><span class="line">    objTable.setAttribute(<span class="string">"cellpadding"</span>,<span class="string">"0"</span>);</span><br><span class="line">    for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</span><br><span class="line">        var <span class="variable">tr =</span> objTable.insertRow(<span class="number">0</span>);</span><br><span class="line">        for(var <span class="variable">j=</span><span class="number">0</span>;j&lt;<span class="number">7</span>;j++)&#123;</span><br><span class="line">            var <span class="variable">td =</span> tr.insertCell(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    timeForm.appendChild(objTable);</span><br><span class="line">    var <span class="variable">tds =</span> objTable.getElementsByTagName(<span class="string">"td"</span>);</span><br><span class="line">    for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;tds.length;i++)&#123;</span><br><span class="line">        tds[i].setAttribute(<span class="string">"align"</span>,<span class="string">"center"</span>);</span><br><span class="line">        tds[i].setAttribute(<span class="string">"valign"</span>,<span class="string">"middle"</span>);</span><br><span class="line">        tds[i].setAttribute(<span class="string">"height"</span>,<span class="number">27</span>);</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">                                          </span><br><span class="line">    var <span class="variable">prevYear =</span> document.getElementById(<span class="string">"prevYear"</span>); </span><br><span class="line">    var <span class="variable">nextYear =</span> document.getElementById(<span class="string">"nextYear"</span>);</span><br><span class="line">    var <span class="variable">yearInfo =</span> document.getElementById(<span class="string">"yearInfo"</span>);</span><br><span class="line">    var <span class="variable">selectMonth =</span> document.date.selectMonth;</span><br><span class="line">      </span><br><span class="line">    var <span class="variable">savebtn =</span> document.getElementById(<span class="string">"save"</span>);</span><br><span class="line">    var <span class="variable">memo =</span> document.date.memo;</span><br><span class="line">    <span class="comment">/*用于存放备忘录的数组，数组的每个元素都是一个对象&#123;&#125;*/</span></span><br><span class="line">    var <span class="variable">memos =</span> new Array();</span><br><span class="line">      </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/*获得当前日期的相关参数,并且把数据初始化到各个表单中*/</span></span><br><span class="line">    var <span class="variable">date =</span> new Date();</span><br><span class="line">    var <span class="variable">year =</span> date.getFullYear();</span><br><span class="line">    var <span class="variable">month =</span> date.getMonth() + <span class="number">1</span>;</span><br><span class="line">    var <span class="variable">dateCurrent =</span> date.getDate();</span><br><span class="line">    var <span class="variable">day =</span> date.getDay();</span><br><span class="line">    yearInfo.<span class="variable">innerHTML =</span> year;</span><br><span class="line">    var <span class="variable">option =</span> selectMonth.options;</span><br><span class="line">    for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;option.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(parseInt(option[i].value)==month)&#123;</span><br><span class="line">            option[i].<span class="variable">selected =</span> <span class="constant">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    writedatePostion(parseInt(year),parseInt(selectMonth.options[selectMonth.selectedIndex].value),tds);</span><br><span class="line">    for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;tds.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(tds[i].<span class="variable">innerHTML =</span>=dateCurrent)&#123;</span><br><span class="line">            tds[i].<span class="variable">className =</span> <span class="string">"current"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">    <span class="comment">/*选择年份*/</span></span><br><span class="line">    prevYear.<span class="variable">onclick =</span> function()&#123;</span><br><span class="line">        yearInfo.<span class="variable">innerHTML =</span> (parseInt(yearInfo.innerHTML)-<span class="number">1</span>).<span class="built_in">toString</span>();</span><br><span class="line">        writedatePostion(parseInt(yearInfo.innerHTML),parseInt(selectMonth.options[selectMonth.selectedIndex].value),tds);</span><br><span class="line">        for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;tds.length;i++)&#123;</span><br><span class="line">            tds[i].<span class="variable">className =</span> <span class="string">""</span>;</span><br><span class="line">            <span class="keyword">if</span>(tds[i].<span class="variable">innerHTML =</span>= dateCurrent)&#123;</span><br><span class="line">                tds[i].<span class="variable">className =</span> <span class="string">"current"</span>;   </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    nextYear.<span class="variable">onclick =</span> function()&#123;</span><br><span class="line">        yearInfo.<span class="variable">innerHTML =</span> (parseInt(yearInfo.innerHTML)+<span class="number">1</span>).<span class="built_in">toString</span>();</span><br><span class="line">        writedatePostion(parseInt(yearInfo.innerHTML),parseInt(selectMonth.options[selectMonth.selectedIndex].value),tds);</span><br><span class="line">        for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;tds.length;i++)&#123;</span><br><span class="line">            tds[i].<span class="variable">className =</span> <span class="string">""</span>;</span><br><span class="line">            <span class="keyword">if</span>(tds[i].<span class="variable">innerHTML =</span>= dateCurrent)&#123;</span><br><span class="line">                tds[i].<span class="variable">className =</span> <span class="string">"current"</span>;   </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;   </span><br><span class="line">      </span><br><span class="line">    <span class="comment">/*选择月份*/</span></span><br><span class="line">    selectMonth.<span class="variable">onchange =</span> function()&#123;</span><br><span class="line">        writedatePostion(parseInt(yearInfo.innerHTML),parseInt(selectMonth.options[selectMonth.selectedIndex].value),tds);</span><br><span class="line">        for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;tds.length;i++)&#123;</span><br><span class="line">            tds[i].<span class="variable">className =</span> <span class="string">""</span>;</span><br><span class="line">            <span class="keyword">if</span>(tds[i].<span class="variable">innerHTML =</span>= dateCurrent)&#123;</span><br><span class="line">                tds[i].<span class="variable">className =</span> <span class="string">"current"</span>;   </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">    <span class="comment">/*判断是否是瑞年*/</span></span><br><span class="line">    function isLeapYear(iYear)&#123;</span><br><span class="line">        <span class="keyword">if</span>(iYear%<span class="number">4</span>==<span class="number">0</span>&amp;&amp;iYear%<span class="number">100</span>!=<span class="number">0</span>)&#123;</span><br><span class="line">            return <span class="constant">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(iYear%<span class="number">400</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                return <span class="constant">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                return <span class="constant">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">    <span class="comment">/*获得某年某月的天数并且得出和星期的对应关系*/</span></span><br><span class="line">    function writedatePostion(year,month,domArr)&#123;</span><br><span class="line">        <span class="comment">/*先初始化清除所有显示天数*/</span></span><br><span class="line">        for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;domArr.length;i++)&#123;</span><br><span class="line">            domArr[i].<span class="variable">innerHTML =</span> <span class="string">""</span>;   </span><br><span class="line">        &#125;</span><br><span class="line">          </span><br><span class="line">        var <span class="variable">nDate =</span> new Date();</span><br><span class="line">        var daynum;</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">month=</span>=<span class="number">1</span>||<span class="variable">month=</span>=<span class="number">3</span>||<span class="variable">month=</span>=<span class="number">5</span>||<span class="variable">month=</span>=<span class="number">7</span>||<span class="variable">month=</span>=<span class="number">8</span>||<span class="variable">month=</span>=<span class="number">10</span>||<span class="variable">month=</span>=<span class="number">12</span>)&#123;</span><br><span class="line">            <span class="variable">daynum =</span> <span class="number">31</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="variable">month=</span>=<span class="number">4</span>||<span class="variable">month=</span>=<span class="number">6</span>||<span class="variable">month=</span>=<span class="number">9</span>||<span class="variable">month=</span>=<span class="number">11</span>)&#123;</span><br><span class="line">            <span class="variable">daynum =</span> <span class="number">30</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="variable">month=</span>=<span class="number">2</span>&amp;&amp;isLeapYear(year))&#123;</span><br><span class="line">            <span class="variable">daynum =</span> <span class="number">29</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="variable">daynum =</span> <span class="number">28</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        nDate.setFullYear(year);</span><br><span class="line">        nDate.setMonth(month-<span class="number">1</span>);</span><br><span class="line">        nDate.setDate(<span class="number">1</span>);</span><br><span class="line">        switch(nDate.getDay())&#123;</span><br><span class="line">            case <span class="number">0</span>:</span><br><span class="line">                for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;daynum;i++)&#123;</span><br><span class="line">                    domArr[i].<span class="variable">innerHTML =</span> i+<span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">                break;</span><br><span class="line">              </span><br><span class="line">            case <span class="number">1</span>:</span><br><span class="line">                for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;daynum;i++)&#123;</span><br><span class="line">                    domArr[i+<span class="number">1</span>].<span class="variable">innerHTML =</span> i+<span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">                break;</span><br><span class="line">              </span><br><span class="line">            case <span class="number">2</span>:</span><br><span class="line">                for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;daynum;i++)&#123;</span><br><span class="line">                    domArr[i+<span class="number">2</span>].<span class="variable">innerHTML =</span> i+<span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">                break;</span><br><span class="line">              </span><br><span class="line">            case <span class="number">3</span>:</span><br><span class="line">                for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;daynum;i++)&#123;</span><br><span class="line">                    domArr[i+<span class="number">3</span>].<span class="variable">innerHTML =</span> i+<span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">                break;</span><br><span class="line">                  </span><br><span class="line">            case <span class="number">4</span>:</span><br><span class="line">                for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;daynum;i++)&#123;</span><br><span class="line">                    domArr[i+<span class="number">4</span>].<span class="variable">innerHTML =</span> i+<span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">                break;</span><br><span class="line">                  </span><br><span class="line">            case <span class="number">5</span>:</span><br><span class="line">                for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;daynum;i++)&#123;</span><br><span class="line">                    domArr[i+<span class="number">5</span>].<span class="variable">innerHTML =</span> i+<span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">                break;</span><br><span class="line">                  </span><br><span class="line">            case <span class="number">6</span>:</span><br><span class="line">                for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;daynum;i++)&#123;</span><br><span class="line">                    domArr[i+<span class="number">6</span>].<span class="variable">innerHTML =</span> i+<span class="number">1</span></span><br><span class="line">                &#125;</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">    <span class="comment">/*添加备忘录*/</span></span><br><span class="line">    savebtn.<span class="variable">onclick =</span> function()&#123;</span><br><span class="line">        var date;</span><br><span class="line">        <span class="keyword">if</span>(memo.<span class="variable">value =</span>= <span class="string">""</span>||memo.<span class="variable">value=</span>=<span class="string">"添加备忘录"</span>)&#123;</span><br><span class="line">            alert(<span class="string">"你还没有添加备忘录，无需保存！"</span>);</span><br><span class="line">            return <span class="constant">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;tds.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(tds[i].className.indexOf(<span class="string">"current"</span>)&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="variable">date =</span> tds[i].innerHTML;    </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        var <span class="variable">o =</span> &#123;</span><br><span class="line">            year: yearInfo.innerHTML,</span><br><span class="line">            month: selectMonth.options[selectMonth.selectedIndex].value,</span><br><span class="line">            date: date,</span><br><span class="line">            _memo: memo.value</span><br><span class="line">        &#125;</span><br><span class="line">        memos.push(o);  </span><br><span class="line">        alert(<span class="string">"添加备忘录成功！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">    <span class="comment">/*选择具体某一天的响应程序*/</span></span><br><span class="line">    for(var <span class="variable">i=</span><span class="number">0</span>;i&lt;tds.length;i++)&#123;</span><br><span class="line">        tds[i].<span class="variable">onclick =</span> function()&#123;</span><br><span class="line">            memo.<span class="variable">value =</span> <span class="string">"添加备忘录"</span>;</span><br><span class="line">            <span class="keyword">if</span>(this.innerHTML!=<span class="string">""</span>)&#123;</span><br><span class="line">                for(var <span class="variable">j=</span><span class="number">0</span>;j&lt;tds.length;j++)&#123;</span><br><span class="line">                    //zhennJs.removeClass(tds[j],<span class="string">"current"</span>);    </span><br><span class="line">                    tds[j].<span class="variable">className =</span> <span class="string">""</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                this.<span class="variable">className =</span> <span class="string">"current"</span>;</span><br><span class="line">                for(var i <span class="keyword">in</span> memos)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(yearInfo.<span class="variable">innerHTML=</span>=memos[i].year&amp;&amp;selectMonth.options[selectMonth.selectedIndex].<span class="variable">value=</span>=memos[i].month&amp;&amp;this.<span class="variable">innerHTML=</span>=memos[i].date)&#123;</span><br><span class="line">                        memo.<span class="variable">value =</span> <span class="string">"今日备忘：\n"</span>+memos[i]._memo;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**备忘录操作所存取数据，没有数据库的支持。</span><br><span class="line">    *只在js中建立一个数组来存储，故而在不刷新页面的情况下，可以进行操作</span><br><span class="line">    *如需和服务器进行交互，使用ajax也十分方便</span><br><span class="line">    */</span></span><br><span class="line">      </span><br><span class="line">&#125;);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-	 
-	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
-<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://yoursite.com"><strong>zhenn</strong></a></span>
-</p>
-       	 
       
     </div>
-    <footer>
+
+    <div class="post-footer">
       
-	 
-     		  
-  
-  <div class="categories">
-    <a href="/categories/技术/">技术</a>
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/"> #javascript </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2010/07/02/javascript设计模式学习笔记之“类式继承”/">javascript设计模式学习笔记之“类式继承”</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2010/03/30/计算字符串中出现次数最多的字符和出现的次数/">计算字符串中出现次数最多的字符和出现的次数</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
   </div>
 
-       		
-  
-  <div class="tags">
-    <a href="/tags/javascript/">javascript</a>
+
+
+    <div class="post-spread">
+      
+    </div>
+
+    
+      <div class="comments" id="comments">
+        
+          <div class="ds-thread" data-thread-key="2010/04/12/JavaScript日历控件/"
+               data-title="JavaScript日历控件" data-url="http://yoursite.com/2010/04/12/JavaScript日历控件/">
+          </div>
+        
+      </div>
+    
   </div>
 
-     		  
-<!-- JiaThis Button BEGIN -->
-<div class="jiathis_style addthis addthis_toolbox addthis_default_style" style="color: black">
-	<span class="jiathis_txt"></span>
-	<a class="jiathis_button_tools_1"></a>
-	<a class="jiathis_button_tools_2"></a>
-	<a class="jiathis_button_tools_3"></a>
-	<a class="jiathis_button_tools_4"></a>
-	<a href="http://www.jiathis.com/share?uid=1784645" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-	<a class="jiathis_counter_style"></a>
+
+        </div>
+
+        
+      </div>
+
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="zhenn" />
+          <p class="site-author-name">zhenn</p>
+        </div>
+        <p class="site-description motion-element"></p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+        
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">zhenn</span>
 </div>
-<script type="text/javascript">
-var jiathis_config = {data_track_clickback:'true'};
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
 </script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2022681" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-       	 
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
 
 
-<section id="comment">
-  <h1 class="title">留言</h1>
-<div id="uyan_frame"></div>
-<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=2022681" async=""></script>
-</section>
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
 
-</div>
-    </div>
-    <div class="tabbar" onload="divideTabBar()">
-	
-      <div class="tabbaritem"><a class="next" href="/">主页</a></div>
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
     
-      <div class="tabbaritem"><a class="next" href="/archives/">归档</a></div>
-    
-      <div class="tabbaritem"><a class="next" href="/about/">关于我</a></div>
-    
-</div>
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"6961706a24417bd4d2c348fbd18a996b"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
 
 
-  </div>
+  
+  
+
 </body>
 </html>

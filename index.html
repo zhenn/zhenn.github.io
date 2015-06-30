@@ -1,444 +1,604 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
 <head>
-  <meta charset="utf-8">
   
-  <title>zhenn</title>
-  <meta name="author" content="zhenn">
-  
-  
-  
-  <meta property="og:site_name" content="zhenn"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
-    <meta property="og:image" content="undefined"/>
-  
-   <link rel="apple-touch-icon" href="/icon.png" />
-   <link rel="shortcut icon" href="/favicon.png" >
-   <link rel="alternate" href="http://xxx.xx/atom.xml" title="zhenn" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    analytics: {
+      google: ''
+    },
+    sidebar: 'post'
+  };
+</script>
+
+
+
+
+  <title> zhenn's note </title>
 </head>
 
-
 <body>
-  <div id="content" class="inner">
-    <aside id="sidebar" class="alignleft">
-      <div class="navigationBar">
-        <a href="/">zhenn</a>
-      </div>
-    	
-  <div class="widget search">
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="text" name="q" results="0" placeholder="搜索">
-    <input type="hidden" name="q" value="site:yoursite.com">
-  </form>
-</div>
-
-  <nav class="widget" id="menu">
-	<ul>
-    
-      <li class="cell"><a class="next" href="/">主页</a><li>
-    
-      <li class="cell"><a class="next" href="/archives/">归档</a><li>
-    
-      <li class="cell"><a class="next" href="/about/">关于我</a><li>
-    
-    </ul>
-</nav>
-
-  
-<div class="widget tag">
-  <h3 class="title">分类</h3>
-  <ul class="entry">
-  
-    <li><a href="/categories/技术/">技术</a><small>29</small></li>
-  
-  </ul>
-</div>
-
-
-  
-<div class="widget tagcloud">
-  <h3 class="title">标签云</h3>
-  <div class="entry">
-    <a href="/tags/apache/" style="font-size: 10px;">apache</a><a href="/tags/css/" style="font-size: 16.67px;">css</a><a href="/tags/dom/" style="font-size: 16.67px;">dom</a><a href="/tags/javascript/" style="font-size: 20px;">javascript</a><a href="/tags/jslint/" style="font-size: 10px;">jslint</a><a href="/tags/mac/" style="font-size: 10px;">mac</a><a href="/tags/node/" style="font-size: 16.67px;">node</a><a href="/tags/npm/" style="font-size: 16.67px;">npm</a><a href="/tags/shell/" style="font-size: 10px;">shell</a><a href="/tags/vim/" style="font-size: 13.33px;">vim</a><a href="/tags/webapp/" style="font-size: 10px;">webapp</a><a href="/tags/zencoding/" style="font-size: 10px;">zencoding</a><a href="/tags/代理/" style="font-size: 13.33px;">代理</a><a href="/tags/命令行/" style="font-size: 10px;">命令行</a><a href="/tags/性能/" style="font-size: 10px;">性能</a><a href="/tags/跨域/" style="font-size: 10px;">跨域</a>
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
   </div>
+<![endif]-->
+
+  <div class="container one-column 
+   page-home 
+">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">zhenn's note</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
 </div>
 
-
-  
-<div class="widget tag">
-  <h3 class="title">最近发布</h3>
-  <ul class="entry">
-    
-      <li>
-        <a href="/2015/06/28/Mac Mail配置QQ企业邮箱/">Mac Mail配置QQ企业邮箱</a>
-      </li>
-    
-      <li>
-        <a href="/2014/08/10/node及node模块升级/">node及node模块升级</a>
-      </li>
-    
-      <li>
-        <a href="/2014/02/10/mac版代理开发工具/">mac版代理开发工具</a>
-      </li>
-    
-      <li>
-        <a href="/2013/10/19/如何开发并发布node插件到npm平台/">如何开发并发布node插件到npm平台</a>
-      </li>
-    
-      <li>
-        <a href="/2013/04/30/使用apache开启proxy服务/">使用apache开启proxy服务</a>
-      </li>
-    
-      <li>
-        <a href="/2013/04/27/mac：zsh配置/">mac：zsh配置</a>
-      </li>
-    
-      <li>
-        <a href="/2013/04/19/移动端webapp：图片使用最佳实践/">移动端webapp：图片使用最佳实践</a>
-      </li>
-    
-      <li>
-        <a href="/2012/01/30/mac-jslint-for-vim/">mac:jslint_for_vim</a>
-      </li>
-    
-      <li>
-        <a href="/2012/01/19/mac配置vimzencoding/">mac配置vimzencoding</a>
-      </li>
-    
-      <li>
-        <a href="/2011/12/10/开发命令行工具（unix）/">开发命令行工具（unix）</a>
-      </li>
-    
-  </ul>
-</div>
-
-
-    	<footer id="footer" class="inner"><div class="copyright">
-  
-  &copy; 2015 zhenn
-  
-</div>
-
-
-
-</footer>
-    </aside>
-    
-    
-    <div id="hidden-navigationBar" class="navigationBar">
-      <a href="/">zhenn</a>
-    </div>
-    <div id="main-col" class="alignright">
-    <div id="wrapper">
-      
+<div class="site-nav">
   
 
-
-<article class="post">
   
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-  <header>
-      
-      
-  
-    <h1 class="title"><a href="/2015/06/28/Mac Mail配置QQ企业邮箱/">Mac Mail配置QQ企业邮箱</a></h1>
-  
-
-      <time datetime="2015-06-28T15:27:23.000Z"><a href="/2015/06/28/Mac Mail配置QQ企业邮箱/">2015-06-28</a></time>
-      
-  </header>
-    <div class="entry">
-      
-        <p>打开Mail应用，若你在此之前没有配置任何邮箱，你将看到如下界面：</p>
-<p><img src="/img/s/1.png" alt=""></p>
-      
-    </div>
-    <footer>
-      
+    <ul id="menu" class="menu ">
       
         
-          <div class="alignleft">
-            <a href="/2015/06/28/Mac Mail配置QQ企业邮箱/#more" class="more-link">Read More</a>
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</div>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+  <div id="posts" class="posts-expand">
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/06/28/Mac Mail配置QQ企业邮箱/">
+                Mac Mail配置QQ企业邮箱
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-06-28
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术/">技术</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/06/28/Mac Mail配置QQ企业邮箱/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/28/Mac Mail配置QQ企业邮箱/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>打开Mail应用，若你在此之前没有配置任何邮箱，你将看到如下界面：</p>
+<p><img src="/img/s/1.png" alt=""></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/28/Mac Mail配置QQ企业邮箱/#more">
+              阅读全文 &raquo;
+            </a>
           </div>
         
+      
+    </div>
+
+    <div class="post-footer">
+      
 
       
-      <div class="clearfix"></div>
-    </footer>
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
   </div>
-</article>
 
 
-
-
-  
-
-
-<article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
     
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-  <header>
       
-      
-  
-    <h1 class="title"><a href="/2014/08/10/node及node模块升级/">node及node模块升级</a></h1>
-  
 
-      <time datetime="2014-08-10T06:47:24.000Z"><a href="/2014/08/10/node及node模块升级/">2014-08-10</a></time>
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
       
-  </header>
-    <div class="entry">
       
-        <p>node版本升级原始方法，通过下载源码在本地重新编译，过程相对繁琐。实际上，node中有一个版本管理模块n，可一键升级node版本。</p>
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2014/08/10/node及node模块升级/">
+                node及node模块升级
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2014-08-10
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术/">技术</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/08/10/node及node模块升级/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/10/node及node模块升级/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>node版本升级原始方法，通过下载源码在本地重新编译，过程相对繁琐。实际上，node中有一个版本管理模块n，可一键升级node版本。</p>
 <h3 id="第一步，先安全n模块">第一步，先安全n模块</h3><p><code>npm install -g n</code></p>
 <h3 id="第二步，一键升级">第二步，一键升级</h3><p>升级到稳定版：<code>n stable</code><br>升级至指定版：<code>n 0.10</code></p>
-      
-    </div>
-    <footer>
-      
-      
-        
-          <div class="alignleft">
-            <a href="/2014/08/10/node及node模块升级/#more" class="more-link">Read More</a>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/08/10/node及node模块升级/#more">
+              阅读全文 &raquo;
+            </a>
           </div>
         
+      
+    </div>
+
+    <div class="post-footer">
+      
 
       
-      <div class="clearfix"></div>
-    </footer>
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
   </div>
-</article>
 
 
-
-
-  
-
-
-<article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
     
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-  <header>
       
-      
-  
-    <h1 class="title"><a href="/2014/02/10/mac版代理开发工具/">mac版代理开发工具</a></h1>
-  
 
-      <time datetime="2014-02-10T07:43:23.000Z"><a href="/2014/02/10/mac版代理开发工具/">2014-02-10</a></time>
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
       
-  </header>
-    <div class="entry">
       
-        <p>在移动端h5开发的时代，比任何时候都需要代理服务，来帮助我们调试定位网络请求问题。</p>
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2014/02/10/mac版代理开发工具/">
+                mac版代理开发工具
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2014-02-10
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术/">技术</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2014/02/10/mac版代理开发工具/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2014/02/10/mac版代理开发工具/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>在移动端h5开发的时代，比任何时候都需要代理服务，来帮助我们调试定位网络请求问题。</p>
 <p>windows平台可以使用fiddler，但作为mac用户，只能通过虚机启动windows来使用，实为低效繁琐；更为头疼的是，新一代mac未自带网线插口，导致部分虚拟机无法开启桥接网络共享模式，带来的后果便是，移动设备通过wifi接入网络和虚拟机网络的默认网关不一致，此时并无法真正实现代理服务。当然可以通过更换虚拟机、使用USB转接网线解决，这就进一步增加了开发成本。</p>
 <p>因此，在这里推荐mac端的一种代理服务工具：charles。使用截图如下：</p>
 <p><img src="/img/99.jpg" alt=""></p>
 <p>功能完全媲美于fiddler，甚至提供了模拟慢网的功能，这和移动端开发契合度非常高。拥有这样的开发利器，再也不用为定位问题而担忧.</p>
 
-	 
-	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
-<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://yoursite.com"><strong>zhenn</strong></a></span>
-</p>
-       	 
+        
       
     </div>
-    <footer>
+
+    <div class="post-footer">
+      
+
+      
+
       
       
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2013/10/19/如何开发并发布node插件到npm平台/">
+                如何开发并发布node插件到npm平台
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2013-10-19
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术/">技术</a>
+
+              
+              
+
+            
+          </span>
         
 
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2013/10/19/如何开发并发布node插件到npm平台/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2013/10/19/如何开发并发布node插件到npm平台/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
 
+    <div class="post-body">
 
-
-
-  
-
-
-<article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-  <header>
       
       
-  
-    <h1 class="title"><a href="/2013/10/19/如何开发并发布node插件到npm平台/">如何开发并发布node插件到npm平台</a></h1>
-  
 
-      <time datetime="2013-10-19T06:34:57.000Z"><a href="/2013/10/19/如何开发并发布node插件到npm平台/">2013-10-19</a></time>
       
-  </header>
-    <div class="entry">
-      
-        <p>无论是为了自己编写的node程序可以方便第三方使用（足够通用），还是仅仅出于对团队协作考虑（仅团队中使用），使用npm平台都是不错的选择，操作也很简介。</p>
+        
+          <p>无论是为了自己编写的node程序可以方便第三方使用（足够通用），还是仅仅出于对团队协作考虑（仅团队中使用），使用npm平台都是不错的选择，操作也很简介。</p>
 <h2 id="一，在npm平台创建账号">一，在npm平台创建账号</h2><p>理所当然，当上传压缩包到一个公用平台，没有身份标识显然行不通。因此，第一步需要到npm官方网站注册账号，地址：<a href="https://www.npmjs.org/">https://www.npmjs.org/</a>，记住你的name 和 pwd。</p>
 <h2 id="二，编写node程序">二，编写node程序</h2><p>这里特殊说明，如果你想开发grunt插件，请使用grunt官方提供的创建插件方法初始化项目，具体请参考：<a href="http://www.gruntjs.org/docs/creating-plugins.html">http://www.gruntjs.org/docs/creating-plugins.html</a>.</p>
 <p>通过这种方法，在package.json配置文件中会自动添加keyword：gruntplugin ，有了这个配置项即可保证你开发的npm模块被收集到grunt插件平台<a href="http://gruntjs.com/plugins">http://gruntjs.com/plugins</a></p>
 <p>若只是普通的node库，则忽略此步骤。</p>
-      
-    </div>
-    <footer>
-      
-      
-        
-          <div class="alignleft">
-            <a href="/2013/10/19/如何开发并发布node插件到npm平台/#more" class="more-link">Read More</a>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2013/10/19/如何开发并发布node插件到npm平台/#more">
+              阅读全文 &raquo;
+            </a>
           </div>
         
+      
+    </div>
+
+    <div class="post-footer">
+      
 
       
-      <div class="clearfix"></div>
-    </footer>
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
   </div>
-</article>
 
 
-
-
-  
-
-
-<article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
     
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-  <header>
       
-      
-  
-    <h1 class="title"><a href="/2013/04/30/使用apache开启proxy服务/">使用apache开启proxy服务</a></h1>
-  
 
-      <time datetime="2013-04-30T06:30:49.000Z"><a href="/2013/04/30/使用apache开启proxy服务/">2013-04-30</a></time>
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
       
-  </header>
-    <div class="entry">
       
-        <h2 id="1，_挂载apache相关_proxy模块">1， 挂载apache相关 proxy模块</h2><p>打开httpd.conf，把以下代码前的注释符去掉</p>
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2013/04/30/使用apache开启proxy服务/">
+                使用apache开启proxy服务
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2013-04-30
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术/">技术</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2013/04/30/使用apache开启proxy服务/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/30/使用apache开启proxy服务/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="1，_挂载apache相关_proxy模块">1， 挂载apache相关 proxy模块</h2><p>打开httpd.conf，把以下代码前的注释符去掉</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LoadModule proxy_module modules/mod_proxy<span class="class">.so</span></span><br><span class="line">LoadModule proxy_ajp_module modules/mod_proxy_ajp<span class="class">.so</span></span><br><span class="line">LoadModule proxy_balancer_module modules/mod_proxy_balancer<span class="class">.so</span></span><br><span class="line">LoadModule proxy_connect_module modules/mod_proxy_connect<span class="class">.so</span></span><br><span class="line">LoadModule proxy_http_module modules/mod_proxy_http.so</span><br></pre></td></tr></table></figure>
 <h2 id="2，启动proxy服务">2，启动proxy服务</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ProxyRequests</span> <span class="literal">on</span></span><br><span class="line"><span class="tag">&lt;Proxy *&gt;</span></span><br><span class="line">       <span class="keyword"><span class="common">Order</span></span> deny,allow</span><br><span class="line">       <span class="keyword"><span class="common">Allow</span></span> from <span class="literal">all</span></span><br><span class="line">       <span class="comment">#Deny from 127.0.0.1</span></span><br><span class="line"><span class="tag">&lt;/Proxy&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="3，设完手工，移动终端即可不用绑定host访问开发机上的测试页面">3，设完手工，移动终端即可不用绑定host访问开发机上的测试页面</h2>
-	 
-	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
-<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://yoursite.com"><strong>zhenn</strong></a></span>
-</p>
-       	 
+        
       
     </div>
-    <footer>
+
+    <div class="post-footer">
+      
+
+      
+
       
       
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2013/04/27/mac：zsh配置/">
+                mac：zsh配置
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2013-04-27
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术/">技术</a>
+
+              
+              
+
+            
+          </span>
         
 
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2013/04/27/mac：zsh配置/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/27/mac：zsh配置/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
 
+    <div class="post-body">
 
-
-
-  
-
-
-<article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-  <header>
       
       
-  
-    <h1 class="title"><a href="/2013/04/27/mac：zsh配置/">mac：zsh配置</a></h1>
-  
 
-      <time datetime="2013-04-27T06:27:23.000Z"><a href="/2013/04/27/mac：zsh配置/">2013-04-27</a></time>
       
-  </header>
-    <div class="entry">
-      
-        <p><code>Zsh</code>是一款功能强大的交互式 shell，与 Bash 相比，Zsh 下面几点表现令人印象深刻：</p>
+        
+          <p><code>Zsh</code>是一款功能强大的交互式 shell，与 Bash 相比，Zsh 下面几点表现令人印象深刻：</p>
 <ul>
 <li>自动补全</li>
 <li>拼写纠错</li>
@@ -451,264 +611,533 @@
 <h2 id="三，插件管理">三，插件管理</h2><p>oh-my-zsh是基于zsh的功能做了一 个扩展，方便的插件管理、主题自定义，以及漂亮的自动完成效果。</p>
 <p>安装过程全自动：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">via <span class="string">`curl`</span></span><br><span class="line">curl -<span class="constant">L</span> <span class="symbol">https:</span>/<span class="regexp">/github.com/robbyrussell</span><span class="regexp">/oh-my-zsh/raw</span><span class="regexp">/master/tools</span><span class="regexp">/install.sh | sh</span></span><br></pre></td></tr></table></figure></p>
 
-	 
-	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
-<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://yoursite.com"><strong>zhenn</strong></a></span>
-</p>
-       	 
+        
       
     </div>
-    <footer>
+
+    <div class="post-footer">
+      
+
+      
+
       
       
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2013/04/19/移动端webapp：图片使用最佳实践/">
+                移动端webapp：图片使用最佳实践
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2013-04-19
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术/">技术</a>
+
+              
+              
+
+            
+          </span>
         
 
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2013/04/19/移动端webapp：图片使用最佳实践/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/19/移动端webapp：图片使用最佳实践/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
 
+    <div class="post-body">
 
-
-
-  
-
-
-<article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-  <header>
       
       
-  
-    <h1 class="title"><a href="/2013/04/19/移动端webapp：图片使用最佳实践/">移动端webapp：图片使用最佳实践</a></h1>
-  
 
-      <time datetime="2013-04-19T06:18:52.000Z"><a href="/2013/04/19/移动端webapp：图片使用最佳实践/">2013-04-19</a></time>
       
-  </header>
-    <div class="entry">
-      
-        <p>在开始本篇内容介绍前，请先回忆一下你在浏览包含很多大图片网页时的体验，尤其是在图片没有采用懒加载技术情况下，即打开网页时一次性将所有图片加载完毕，并完成渲染。这种情境下，相信不多数人都会发觉网页在首屏显示完整后，拖动网页右侧滚动条，浏览器却没有任何响应，在短暂的等待后，页面随之会向下滚动。</p>
+        
+          <p>在开始本篇内容介绍前，请先回忆一下你在浏览包含很多大图片网页时的体验，尤其是在图片没有采用懒加载技术情况下，即打开网页时一次性将所有图片加载完毕，并完成渲染。这种情境下，相信不多数人都会发觉网页在首屏显示完整后，拖动网页右侧滚动条，浏览器却没有任何响应，在短暂的等待后，页面随之会向下滚动。</p>
 <p>另外需要说明，使用不同的浏览器，上述现象表现将稍有不同。比如使用Mozilla Firefox，网页的反应速度将稍快，这取决于浏览器厂商各自的设计哲学，firefox就会最大限度的利用系统空闲资源（CPU、内存）去支持页面渲染及交互。这样的设计一定程度上，提升了用户的浏览体验，但在遇到设计糟糕的网页时，势必拖慢系统。</p>
 <p>通过以上现象不难得出结论，web在使用大量图片时，将会让页面加载及渲染速度变的更慢。下文将深入介绍有关图片的相关知识、网页载入图片及渲染过程、图片优化对web性能的影响以及如何在网页中以最优的方式使用图片。</p>
-      
-    </div>
-    <footer>
-      
-      
-        
-          <div class="alignleft">
-            <a href="/2013/04/19/移动端webapp：图片使用最佳实践/#more" class="more-link">Read More</a>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2013/04/19/移动端webapp：图片使用最佳实践/#more">
+              阅读全文 &raquo;
+            </a>
           </div>
         
+      
+    </div>
+
+    <div class="post-footer">
+      
 
       
-      <div class="clearfix"></div>
-    </footer>
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
   </div>
-</article>
 
 
-
-
-  
-
-
-<article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
     
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-  <header>
       
-      
-  
-    <h1 class="title"><a href="/2012/01/30/mac-jslint-for-vim/">mac:jslint_for_vim</a></h1>
-  
 
-      <time datetime="2012-01-30T06:09:41.000Z"><a href="/2012/01/30/mac-jslint-for-vim/">2012-01-30</a></time>
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
       
-  </header>
-    <div class="entry">
       
-        <h3 id="1，准备js引擎">1，准备js引擎</h3><p>mac下默认没有裸的js引擎，需手动安装</p>
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2012/01/30/mac-jslint-for-vim/">
+                mac:jslint_for_vim
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2012-01-30
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术/">技术</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2012/01/30/mac-jslint-for-vim/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2012/01/30/mac-jslint-for-vim/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="1，准备js引擎">1，准备js引擎</h3><p>mac下默认没有裸的js引擎，需手动安装</p>
 <p><code>sudo brew install spidermonkey</code></p>
 <p>安装jslint上的文档说明，安装的软件包应该是spidermonkey-bin，但笔者一直搜不到相关软件包，无奈之下就用了spidermonkey。</p>
 <h3 id="2，安装ruby">2，安装ruby</h3><p>jslint程序本身是用ruby写的，所以ruby环境也是必须的</p>
 <p><code>sudo port install ruby</code></p>
-      
-    </div>
-    <footer>
-      
-      
-        
-          <div class="alignleft">
-            <a href="/2012/01/30/mac-jslint-for-vim/#more" class="more-link">Read More</a>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2012/01/30/mac-jslint-for-vim/#more">
+              阅读全文 &raquo;
+            </a>
           </div>
         
+      
+    </div>
+
+    <div class="post-footer">
+      
 
       
-      <div class="clearfix"></div>
-    </footer>
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
   </div>
-</article>
 
 
-
-
-  
-
-
-<article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
     
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-  <header>
       
-      
-  
-    <h1 class="title"><a href="/2012/01/19/mac配置vimzencoding/">mac配置vimzencoding</a></h1>
-  
 
-      <time datetime="2012-01-19T06:03:23.000Z"><a href="/2012/01/19/mac配置vimzencoding/">2012-01-19</a></time>
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
       
-  </header>
-    <div class="entry">
       
-        <p>无论你使用什么样的文本编辑器，zencoding作为一种很酷的编码方式，倍受开发人员的青睐。本文简单介绍mac vim下的zen coding配置：</p>
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2012/01/19/mac配置vimzencoding/">
+                mac配置vimzencoding
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2012-01-19
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术/">技术</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2012/01/19/mac配置vimzencoding/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2012/01/19/mac配置vimzencoding/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>无论你使用什么样的文本编辑器，zencoding作为一种很酷的编码方式，倍受开发人员的青睐。本文简单介绍mac vim下的zen coding配置：</p>
 <p>一，下载zen coding插件<br>官方github地址：<a href="https://github.com/mattn/zencoding-vim">https://github.com/mattn/zencoding-vim</a></p>
 <p>可使用git下载，也可以下载zip包。<br>文档说明中有些地方不是很详尽，下面稍加补充说明。</p>
 <p>二，拷贝文件到vim目录</p>
 <p>首先解压缩zip包<code>zencoding-vim-master.zip</code>，进入zencoding-vim-master文件夹，拷贝该目录下的所有文件到剪贴板。进入用户根目录<code>（~/username）</code>，找到.vim文件夹（如不存在则自行创建），粘贴剪贴板中的内容到.vim根目录。</p>
-      
-    </div>
-    <footer>
-      
-      
-        
-          <div class="alignleft">
-            <a href="/2012/01/19/mac配置vimzencoding/#more" class="more-link">Read More</a>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2012/01/19/mac配置vimzencoding/#more">
+              阅读全文 &raquo;
+            </a>
           </div>
         
+      
+    </div>
+
+    <div class="post-footer">
+      
 
       
-      <div class="clearfix"></div>
-    </footer>
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
   </div>
-</article>
 
 
-
-
-  
-
-
-<article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
     
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-  <header>
       
-      
-  
-    <h1 class="title"><a href="/2011/12/10/开发命令行工具（unix）/">开发命令行工具（unix）</a></h1>
-  
 
-      <time datetime="2011-12-10T05:57:42.000Z"><a href="/2011/12/10/开发命令行工具（unix）/">2011-12-10</a></time>
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
       
-  </header>
-    <div class="entry">
       
-        <p>本文拿node程序举例</p>
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2011/12/10/开发命令行工具（unix）/">
+                开发命令行工具（unix）
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2011-12-10
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术/">技术</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2011/12/10/开发命令行工具（unix）/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2011/12/10/开发命令行工具（unix）/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>本文拿node程序举例</p>
 <p>一，创建node程序nodetool，代码如下：</p>
 <figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/usr/bin/env node</span></span><br><span class="line">console.log(process.argv);</span><br></pre></td></tr></table></figure>
 <p>第一行声明执行文件的程序名称，从env中自动检索node，也可以设置node程序的具体位置，如：/usr/local/bin/node，正文部分即js程序。</p>
 <p>查找node程序所在目录，使用whereas(linux)、which（mac）可快速定位，如which node</p>
-      
-    </div>
-    <footer>
-      
-      
-        
-          <div class="alignleft">
-            <a href="/2011/12/10/开发命令行工具（unix）/#more" class="more-link">Read More</a>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2011/12/10/开发命令行工具（unix）/#more">
+              阅读全文 &raquo;
+            </a>
           </div>
         
+      
+    </div>
+
+    <div class="post-footer">
+      
 
       
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
 
-
-
-
-
-<nav id="pagination">
-  
-  
-    <a href="/page/2/" class="alignright next">下一页</a>
-  
-</nav></div>
+      
+      
+        <div class="post-eof"></div>
+      
     </div>
-    <div class="tabbar" onload="divideTabBar()">
-	
-      <div class="tabbaritem"><a class="next" href="/">主页</a></div>
+  </div>
+
+
     
-      <div class="tabbaritem"><a class="next" href="/archives/">归档</a></div>
-    
-      <div class="tabbaritem"><a class="next" href="/about/">关于我</a></div>
-    
+  </div>
+
+  
+  <div class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+  </div>
+
+
+        </div>
+
+        
+      </div>
+
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="zhenn" />
+          <p class="site-author-name">zhenn</p>
+        </div>
+        <p class="site-description motion-element"></p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+        
+      </div>
+
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">zhenn</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
 </div>
 
 
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
   </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+  
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"6961706a24417bd4d2c348fbd18a996b"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+  
+  
+
 </body>
 </html>

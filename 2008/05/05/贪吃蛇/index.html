@@ -1,171 +1,187 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
 <head>
-  <meta charset="utf-8">
   
-  <title>贪吃蛇 | zhenn</title>
-  <meta name="author" content="zhenn">
-  
-  <meta name="description" content="不得不承认，兴趣是激发人进步的最好催化剂。以前还没写过类似这样的东西，不过数月之前就很想把他写出来，由于时间的短缺，一直没有执行，直到这个周末， 终于按捺不住写了这个“七彩贪吃蛇”，虽然功能很简单，但是对我来说，还是从中汲取了不少养分，或者说以前掌握的知识点记得更牢固了，要不怎么说实践是最 好的老师呢！先看操作界面：">
-  
-  
-  <meta property="og:title" content="贪吃蛇"/>
-  <meta property="og:site_name" content="zhenn"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
-    <meta property="og:image" content="undefined"/>
-  
-   <link rel="apple-touch-icon" href="/icon.png" />
-   <link rel="shortcut icon" href="/favicon.png" >
-   <link rel="alternate" href="http://xxx.xx/atom.xml" title="zhenn" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+
+
+
+  <meta name="keywords" content="javascript," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    analytics: {
+      google: ''
+    },
+    sidebar: 'post'
+  };
+</script>
+
+
+
+
+  <title> 贪吃蛇 // zhenn's note </title>
 </head>
 
-
 <body>
-  <div id="content" class="inner">
-    <aside id="sidebar" class="alignleft">
-      <div class="navigationBar">
-        <a href="/">zhenn</a>
-      </div>
-    	
-  <div class="widget search">
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="text" name="q" results="0" placeholder="搜索">
-    <input type="hidden" name="q" value="site:yoursite.com">
-  </form>
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">zhenn's note</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
 </div>
 
-  <nav class="widget" id="menu">
-	<ul>
-    
-      <li class="cell"><a class="next" href="/">主页</a><li>
-    
-      <li class="cell"><a class="next" href="/archives/">归档</a><li>
-    
-      <li class="cell"><a class="next" href="/about/">关于我</a><li>
-    
+<div class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
     </ul>
-</nav>
-
   
-<div class="widget tag">
-  <h3 class="title">分类</h3>
-  <ul class="entry">
-  
-    <li><a href="/categories/技术/">技术</a><small>29</small></li>
-  
-  </ul>
-</div>
 
-
-  
-<div class="widget tagcloud">
-  <h3 class="title">标签云</h3>
-  <div class="entry">
-    <a href="/tags/apache/" style="font-size: 10px;">apache</a><a href="/tags/css/" style="font-size: 16.67px;">css</a><a href="/tags/dom/" style="font-size: 16.67px;">dom</a><a href="/tags/javascript/" style="font-size: 20px;">javascript</a><a href="/tags/jslint/" style="font-size: 10px;">jslint</a><a href="/tags/mac/" style="font-size: 10px;">mac</a><a href="/tags/node/" style="font-size: 16.67px;">node</a><a href="/tags/npm/" style="font-size: 16.67px;">npm</a><a href="/tags/shell/" style="font-size: 10px;">shell</a><a href="/tags/vim/" style="font-size: 13.33px;">vim</a><a href="/tags/webapp/" style="font-size: 10px;">webapp</a><a href="/tags/zencoding/" style="font-size: 10px;">zencoding</a><a href="/tags/代理/" style="font-size: 13.33px;">代理</a><a href="/tags/命令行/" style="font-size: 10px;">命令行</a><a href="/tags/性能/" style="font-size: 10px;">性能</a><a href="/tags/跨域/" style="font-size: 10px;">跨域</a>
-  </div>
-</div>
-
-
-  
-<div class="widget tag">
-  <h3 class="title">最近发布</h3>
-  <ul class="entry">
-    
-      <li>
-        <a href="/2015/06/28/Mac Mail配置QQ企业邮箱/">Mac Mail配置QQ企业邮箱</a>
-      </li>
-    
-      <li>
-        <a href="/2014/08/10/node及node模块升级/">node及node模块升级</a>
-      </li>
-    
-      <li>
-        <a href="/2014/02/10/mac版代理开发工具/">mac版代理开发工具</a>
-      </li>
-    
-      <li>
-        <a href="/2013/10/19/如何开发并发布node插件到npm平台/">如何开发并发布node插件到npm平台</a>
-      </li>
-    
-      <li>
-        <a href="/2013/04/30/使用apache开启proxy服务/">使用apache开启proxy服务</a>
-      </li>
-    
-      <li>
-        <a href="/2013/04/27/mac：zsh配置/">mac：zsh配置</a>
-      </li>
-    
-      <li>
-        <a href="/2013/04/19/移动端webapp：图片使用最佳实践/">移动端webapp：图片使用最佳实践</a>
-      </li>
-    
-      <li>
-        <a href="/2012/01/30/mac-jslint-for-vim/">mac:jslint_for_vim</a>
-      </li>
-    
-      <li>
-        <a href="/2012/01/19/mac配置vimzencoding/">mac配置vimzencoding</a>
-      </li>
-    
-      <li>
-        <a href="/2011/12/10/开发命令行工具（unix）/">开发命令行工具（unix）</a>
-      </li>
-    
-  </ul>
-</div>
-
-
-    	<footer id="footer" class="inner"><div class="copyright">
-  
-  &copy; 2015 zhenn
   
 </div>
 
 
-
-</footer>
-    </aside>
-    
-    
-    <div id="hidden-navigationBar" class="navigationBar">
-      <a href="/">zhenn</a>
+      </div>
     </div>
-    <div id="main-col" class="alignright">
-    <div id="wrapper">
-      
 
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
 
-<article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
+  <div id="posts" class="posts-expand">
     
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-  <header>
-      
-      
-  
-    <h1 class="title">贪吃蛇</h1>
-  
 
-      <time datetime="2008-05-05T15:19:35.000Z"><a href="/2008/05/05/贪吃蛇/">2008-05-05</a></time>
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
       
-  </header>
-    <div class="entry">
+      
+        <h1 class="post-title">
+          
+          
+            
+              贪吃蛇
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2008-05-05
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术/">技术</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2008/05/05/贪吃蛇/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2008/05/05/贪吃蛇/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
       
         <p>不得不承认，兴趣是激发人进步的最好催化剂。以前还没写过类似这样的东西，不过数月之前就很想把他写出来，由于时间的短缺，一直没有执行，直到这个周末， 终于按捺不住写了这个“七彩贪吃蛇”，虽然功能很简单，但是对我来说，还是从中汲取了不少养分，或者说以前掌握的知识点记得更牢固了，要不怎么说实践是最 好的老师呢！先看操作界面：</p>
 <p><img src="/img/4.jpg" alt="img"></p>
@@ -180,72 +196,379 @@
 </ul>
 <p>游戏代码：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.w3.org/1999/xhtml"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">content</span>=<span class="value">"text/html; charset=utf-8"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">title</span>&gt;</span>七彩贪吃蛇！<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span><br><span class="line">*<span class="rules">&#123; <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">0</span></span></span>;&#125;</span></span><br><span class="line"><span class="tag">h1</span><span class="rules">&#123; <span class="rule"><span class="attribute">text-align</span>:<span class="value">center</span></span>; <span class="rule"><span class="attribute">margin-top</span>:<span class="value"><span class="number">14px</span></span></span>;&#125;</span></span><br><span class="line"><span class="tag">table</span><span class="rules">&#123; <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#d4d4d4</span></span></span>; <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid blue</span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">10px</span> auto <span class="number">0</span></span></span>;&#125;</span></span><br><span class="line"><span class="tag">table</span> <span class="tag">td</span><span class="rules">&#123; <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">15px</span></span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">15px</span></span></span>; <span class="rule"><span class="attribute">background</span>:<span class="value"><span class="hexcolor">#fff</span></span></span>; <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">12px</span></span></span>; <span class="rule"><span class="attribute">font-weight</span>:<span class="value">bold</span></span>;&#125;</span></span><br><span class="line"><span class="id">#operation</span><span class="rules">&#123; <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">486px</span></span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">15px</span> auto <span class="number">0</span></span></span>; <span class="rule"><span class="attribute">position</span>:<span class="value">relative</span></span>;&#125;</span></span><br><span class="line"><span class="id">#operation</span> <span class="tag">div</span><span class="rules">&#123; <span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>; <span class="rule"><span class="attribute">right</span>:<span class="value"><span class="number">0</span></span></span>; <span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;&#125;</span></span><br><span class="line"><span class="id">#operation</span> <span class="tag">div</span> <span class="tag">em</span><span class="rules">&#123; <span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#f00</span></span></span>; <span class="rule"><span class="attribute">font-style</span>:<span class="value">normal</span></span>; <span class="rule"><span class="attribute">font-weight</span>:<span class="value">bold</span></span>; <span class="rule"><span class="attribute">padding-right</span>:<span class="value"><span class="number">3px</span></span></span>;&#125;</span></span><br><span class="line"><span class="id">#copyright</span><span class="rules">&#123; <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">486px</span></span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">30px</span> auto</span></span>;&#125;</span></span><br><span class="line"><span class="tag">ol</span><span class="rules">&#123; <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">486px</span></span></span>; <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid <span class="hexcolor">#d5d5d5</span></span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">10px</span> auto <span class="number">0</span></span></span>; <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">13px</span></span></span>; <span class="rule"><span class="attribute">line-height</span>:<span class="value"><span class="number">20px</span></span></span>; <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">6px</span> <span class="number">0</span></span></span>; <span class="rule"><span class="attribute">display</span>:<span class="value">none</span></span>;&#125;</span></span><br><span class="line"><span class="tag">ol</span> <span class="tag">li</span><span class="rules">&#123; <span class="rule"><span class="attribute">list-style-position</span>:<span class="value">inside</span></span>; <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span> <span class="number">6px</span></span></span>;&#125;</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="title">body</span> <span class="attribute">onload</span>=<span class="value">"zhenn.init()"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">$</span><span class="params">(tag)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">document</span>.createElement(tag);</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">var</span> zhenn = &#123;</span><br><span class="line">    <span class="comment">//蛇的宿主对象（环境）</span></span><br><span class="line">    obj: <span class="literal">null</span>,</span><br><span class="line">    <span class="comment">//蛇身,存放蛇的每一个节点，数据结构为&#123;x:num,y:num,color:""&#125;</span></span><br><span class="line">    snakeBody: [],</span><br><span class="line">    <span class="comment">//判断蛇是否处于暂停状态</span></span><br><span class="line">    paused: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">//判断蛇前进的方向，有四个值，分别为0,1,2,3</span></span><br><span class="line">    directions: <span class="number">0</span>,</span><br><span class="line">    <span class="comment">//定时器</span></span><br><span class="line">    timer: <span class="literal">null</span>,</span><br><span class="line">    <span class="comment">//定义蛇移动的速度,值越大，速度越慢</span></span><br><span class="line">    speed: <span class="number">600</span>,</span><br><span class="line">    <span class="comment">//得分</span></span><br><span class="line">    score: <span class="number">0</span>,</span><br><span class="line">    <span class="comment">//分数显示器</span></span><br><span class="line">    container: <span class="literal">null</span>,</span><br><span class="line">    <span class="comment">//记录升级提示信息</span></span><br><span class="line">    upgrade: <span class="number">0</span>,</span><br><span class="line">    rowCount: <span class="number">30</span>,</span><br><span class="line">    colCount: <span class="number">30</span>,</span><br><span class="line">    colors : [<span class="string">"red"</span>,<span class="string">"orange"</span>,<span class="string">"yellow"</span>,<span class="string">"green"</span>,<span class="string">"blue"</span>,<span class="string">"indigo"</span>,<span class="string">"purple"</span>], <span class="comment">//声明数组，存放7种颜色</span></span><br><span class="line">    <span class="comment">//初始化方法</span></span><br><span class="line">    init: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">var</span> colorIndex = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">var</span> x = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">var</span> y = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">var</span> <span class="built_in">console</span> = <span class="built_in">document</span>.getElementById(<span class="string">"operation"</span>);</span><br><span class="line">        <span class="keyword">this</span>.obj = $(<span class="string">"table"</span>);</span><br><span class="line">        <span class="keyword">this</span>.obj.border = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.obj.cellPadding = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.obj.cellSpacing = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">this</span>.container = <span class="built_in">document</span>.getElementById(<span class="string">"container"</span>);</span><br><span class="line">        <span class="keyword">this</span>.container.innerHTML = <span class="keyword">this</span>.score;</span><br><span class="line">        <span class="built_in">document</span>.body.insertBefore(<span class="keyword">this</span>.obj,<span class="built_in">console</span>);</span><br><span class="line">        <span class="comment">//创建表格内部结构</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.rowCount;i++)&#123;</span><br><span class="line">            <span class="keyword">var</span> tr = <span class="keyword">this</span>.obj.insertRow(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;<span class="keyword">this</span>.colCount;j++)&#123;</span><br><span class="line">                <span class="keyword">var</span> td = tr.insertCell(<span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="comment">//产生10个分散的节点（随机分布）</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">            x = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="keyword">this</span>.rowCount);</span><br><span class="line">            y = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="keyword">this</span>.colCount);</span><br><span class="line">            colorIndex = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">7</span>);</span><br><span class="line">            <span class="keyword">if</span>(!<span class="keyword">this</span>.isFilled(x,y))&#123;</span><br><span class="line">                <span class="keyword">this</span>.obj.rows[x].cells[y].style.backgroundColor = <span class="keyword">this</span>.colors[colorIndex];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//生成一个蛇头</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">            x = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="keyword">this</span>.rowCount);</span><br><span class="line">            y = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="keyword">this</span>.colCount);</span><br><span class="line">            <span class="keyword">if</span>(!<span class="keyword">this</span>.isFilled(x,y))&#123;</span><br><span class="line">                <span class="keyword">this</span>.obj.rows[x].cells[y].style.backgroundColor = <span class="string">"black"</span>;</span><br><span class="line">                <span class="keyword">this</span>.snakeBody.push(&#123;x:x,y:y,snakeColor:<span class="string">"black"</span>&#125;);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//键盘监听</span></span><br><span class="line">        <span class="built_in">document</span>.onkeydown = <span class="function"><span class="keyword">function</span><span class="params">(e)</span></span>&#123;</span><br><span class="line">            <span class="keyword">var</span> even = e || <span class="built_in">window</span>.event;</span><br><span class="line">            <span class="keyword">var</span> evenElem = even.keyCode || even.which;</span><br><span class="line">            <span class="keyword">if</span>(evenElem==<span class="number">38</span>&amp;&amp;zhenn.directions!=<span class="number">2</span>)&#123;</span><br><span class="line">                zhenn.directions = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(evenElem==<span class="number">39</span>&amp;&amp;zhenn.directions!=<span class="number">3</span>)&#123;</span><br><span class="line">                zhenn.directions = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(evenElem==<span class="number">40</span>&amp;&amp;zhenn.directions!=<span class="number">0</span>)&#123;</span><br><span class="line">                zhenn.directions = <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(evenElem==<span class="number">37</span>&amp;&amp;zhenn.directions!=<span class="number">1</span>)&#123;</span><br><span class="line">                zhenn.directions = <span class="number">3</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">document</span>.onkeyup = <span class="function"><span class="keyword">function</span><span class="params">(e)</span></span>&#123;</span><br><span class="line">            <span class="keyword">var</span> even = e || <span class="built_in">window</span>.event;</span><br><span class="line">            <span class="keyword">var</span> evenElem = even.keyCode || even.which;</span><br><span class="line">            <span class="keyword">if</span>(evenElem==<span class="number">13</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(zhenn.paused)&#123;</span><br><span class="line">                    zhenn.move();</span><br><span class="line">                    zhenn.paused = <span class="literal">false</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    zhenn.pauseGame();</span><br><span class="line">                    zhenn.paused = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//判断节点是否被填充</span></span><br><span class="line">    isFilled: <span class="function"><span class="keyword">function</span><span class="params">(x,y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.obj.rows[x].cells[y].style.backgroundColor != <span class="string">""</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//获得移动目标位置的坐标</span></span><br><span class="line">    getNextPosition: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">var</span> x = <span class="keyword">this</span>.snakeBody[<span class="number">0</span>].x;</span><br><span class="line">        <span class="keyword">var</span> y = <span class="keyword">this</span>.snakeBody[<span class="number">0</span>].y;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.directions==<span class="number">0</span>)&#123;</span><br><span class="line">            x--;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">this</span>.directions==<span class="number">1</span>)&#123;</span><br><span class="line">            y++;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">this</span>.directions==<span class="number">2</span>)&#123;</span><br><span class="line">            x++;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            y--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//返回一个坐标</span></span><br><span class="line">        <span class="keyword">return</span> &#123;x:x,y:y&#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//获得移动目标位置的颜色</span></span><br><span class="line">    getColor: <span class="function"><span class="keyword">function</span><span class="params">(x,y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.obj.rows[x].cells[y].style.backgroundColor;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//模拟蛇前进一步的效果,</span></span><br><span class="line">    moveOneStep: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.checkNextStep()==-<span class="number">1</span>)&#123;</span><br><span class="line">            alert(<span class="string">"游戏结束"</span>);</span><br><span class="line">            <span class="keyword">this</span>.resetSnake();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.checkNextStep()==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">var</span> _nextPos = <span class="keyword">this</span>.getNextPosition();</span><br><span class="line">            <span class="keyword">var</span> _x = _nextPos.x;</span><br><span class="line">            <span class="keyword">var</span> _y = _nextPos.y;</span><br><span class="line">            <span class="keyword">this</span>.snakeBody.unshift(&#123;x:_x,y:_y,snakeColor:<span class="keyword">this</span>.getColor(_x,_y)&#125;);</span><br><span class="line">            <span class="keyword">this</span>.createNewFood();</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> nextPos = <span class="keyword">this</span>.getNextPosition();</span><br><span class="line">        <span class="keyword">var</span> color = <span class="keyword">this</span>.snakeBody[<span class="number">0</span>].snakeColor;</span><br><span class="line">        <span class="comment">//移动蛇身的颜色</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.snakeBody.length-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">this</span>.snakeBody[i].snakeColor = <span class="keyword">this</span>.snakeBody[i+<span class="number">1</span>].snakeColor;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//在蛇头前增加一个节点，删除蛇身的结尾，模拟移动的效果</span></span><br><span class="line">        <span class="keyword">this</span>.snakeBody.pop();</span><br><span class="line">        <span class="keyword">this</span>.snakeBody.unshift(&#123;x:nextPos.x,y:nextPos.y,snakeColor:color&#125;);</span><br><span class="line">          </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//检查目标位置</span></span><br><span class="line">    checkNextStep: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">var</span> point = <span class="keyword">this</span>.getNextPosition();</span><br><span class="line">        <span class="keyword">var</span> x = point.x;</span><br><span class="line">        <span class="keyword">var</span> y = point.y;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;<span class="number">0</span>||x&gt;=<span class="keyword">this</span>.rowCount||y&lt;<span class="number">0</span>||y&gt;=<span class="keyword">this</span>.colCount)&#123; <span class="comment">//说明下一个位置超过了表格的边界</span></span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">          </span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.isFilled(x,y))&#123; <span class="comment">//说明下一个位置是食物</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.snakeBody.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(x==<span class="keyword">this</span>.snakeBody[i].x&amp;&amp;y==<span class="keyword">this</span>.snakeBody[i].y)&#123; <span class="comment">//说明下一个位置在蛇身上</span></span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//蛇身移动</span></span><br><span class="line">    move: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.timer = setInterval(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">            zhenn.container.innerHTML = zhenn.score;</span><br><span class="line">            zhenn.eraseColor();</span><br><span class="line">            zhenn.moveOneStep();</span><br><span class="line">            zhenn.painter();</span><br><span class="line">            zhenn.checkLevel();</span><br><span class="line">        &#125;,<span class="keyword">this</span>.speed)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//去掉移动前蛇身的着色</span></span><br><span class="line">    eraseColor: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.snakeBody.length;i++)&#123;</span><br><span class="line">            <span class="keyword">this</span>.obj.rows[<span class="keyword">this</span>.snakeBody[i].x].cells[<span class="keyword">this</span>.snakeBody[i].y].style.backgroundColor = <span class="string">""</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//给移动后的蛇身着色</span></span><br><span class="line">    painter: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.snakeBody.length;i++)&#123;</span><br><span class="line">            <span class="keyword">this</span>.obj.rows[<span class="keyword">this</span>.snakeBody[i].x].cells[<span class="keyword">this</span>.snakeBody[i].y].style.backgroundColor = <span class="keyword">this</span>.snakeBody[i].snakeColor;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//产生食物。  </span></span><br><span class="line">    createNewFood: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;  </span><br><span class="line">        <span class="keyword">var</span> x = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="keyword">this</span>.rowCount);  </span><br><span class="line">        <span class="keyword">var</span> y = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="keyword">this</span>.colCount);  </span><br><span class="line">        <span class="keyword">var</span> colorIndex = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">7</span>);  </span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">this</span>.isFilled(x,y))&#123;  </span><br><span class="line">            <span class="keyword">this</span>.obj.rows[x].cells[y].style.backgroundColor = <span class="keyword">this</span>.colors[colorIndex];  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">this</span>.score++;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//暂停游戏</span></span><br><span class="line">    pauseGame: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        clearInterval(zhenn.timer);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//重新加载游戏</span></span><br><span class="line">    resetSnake: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="built_in">window</span>.location.reload();</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//检测是否升级</span></span><br><span class="line">    checkLevel: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">switch</span>(<span class="keyword">this</span>.score/<span class="number">5</span>)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">this</span>.upgrade&lt;<span class="number">1</span>)&#123;</span><br><span class="line">                    alert(<span class="string">"恭喜你成功升为2级"</span>);</span><br><span class="line">                    <span class="keyword">this</span>.speed = <span class="number">550</span>;</span><br><span class="line">                    <span class="keyword">this</span>.pauseGame();</span><br><span class="line">                    <span class="keyword">this</span>.move();</span><br><span class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"level"</span>).selectedIndex = <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">this</span>.upgrade = <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">this</span>.upgrade&lt;<span class="number">2</span>)&#123;</span><br><span class="line">                    alert(<span class="string">"恭喜你成功升为3级"</span>);</span><br><span class="line">                    <span class="keyword">this</span>.speed = <span class="number">500</span>;</span><br><span class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"level"</span>).selectedIndex = <span class="number">2</span>;</span><br><span class="line">                    <span class="keyword">this</span>.upgrade = <span class="number">2</span>; </span><br><span class="line">                    <span class="keyword">this</span>.pauseGame();</span><br><span class="line">                    <span class="keyword">this</span>.move();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">this</span>.upgrade&lt;<span class="number">3</span>)&#123;</span><br><span class="line">                    alert(<span class="string">"恭喜你成功升为4级"</span>);</span><br><span class="line">                    <span class="keyword">this</span>.speed = <span class="number">450</span>;</span><br><span class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"level"</span>).selectedIndex = <span class="number">3</span>;</span><br><span class="line">                    <span class="keyword">this</span>.upgrade = <span class="number">3</span>; </span><br><span class="line">                    <span class="keyword">this</span>.pauseGame();</span><br><span class="line">                    <span class="keyword">this</span>.move();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>:&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">this</span>.upgrade&lt;<span class="number">4</span>)&#123;</span><br><span class="line">                    alert(<span class="string">"恭喜你成功升为5级"</span>);</span><br><span class="line">                    <span class="keyword">this</span>.speed = <span class="number">400</span>;</span><br><span class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"level"</span>).selectedIndex = <span class="number">4</span>;</span><br><span class="line">                    <span class="keyword">this</span>.upgrade = <span class="number">4</span>; </span><br><span class="line">                    <span class="keyword">this</span>.pauseGame();</span><br><span class="line">                    <span class="keyword">this</span>.move();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>:&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">this</span>.upgrade&lt;<span class="number">5</span>)&#123;</span><br><span class="line">                    alert(<span class="string">"恭喜你成功升为6级"</span>);</span><br><span class="line">                    <span class="keyword">this</span>.speed = <span class="number">350</span>;</span><br><span class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"level"</span>).selectedIndex = <span class="number">5</span>;</span><br><span class="line">                    <span class="keyword">this</span>.upgrade = <span class="number">5</span>; </span><br><span class="line">                    <span class="keyword">this</span>.pauseGame();</span><br><span class="line">                    <span class="keyword">this</span>.move();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">6</span>:&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">this</span>.upgrade&lt;<span class="number">6</span>)&#123;</span><br><span class="line">                    alert(<span class="string">"恭喜你成功升为7级"</span>);</span><br><span class="line">                    <span class="keyword">this</span>.speed = <span class="number">300</span>;</span><br><span class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"level"</span>).selectedIndex = <span class="number">6</span>;</span><br><span class="line">                    <span class="keyword">this</span>.upgrade = <span class="number">6</span>; </span><br><span class="line">                    <span class="keyword">this</span>.pauseGame();</span><br><span class="line">                    <span class="keyword">this</span>.move();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">7</span>:&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">this</span>.upgrade&lt;<span class="number">7</span>)&#123;</span><br><span class="line">                    alert(<span class="string">"恭喜你成功升为8级"</span>);</span><br><span class="line">                    <span class="keyword">this</span>.speed = <span class="number">250</span>;</span><br><span class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"level"</span>).selectedIndex = <span class="number">7</span>;</span><br><span class="line">                    <span class="keyword">this</span>.upgrade = <span class="number">7</span>; </span><br><span class="line">                    <span class="keyword">this</span>.pauseGame();</span><br><span class="line">                    <span class="keyword">this</span>.move();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">8</span>:&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">this</span>.upgrade&lt;<span class="number">8</span>)&#123;</span><br><span class="line">                    alert(<span class="string">"恭喜你成功升为9级"</span>);</span><br><span class="line">                    <span class="keyword">this</span>.speed = <span class="number">200</span>;</span><br><span class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"level"</span>).selectedIndex = <span class="number">8</span>;</span><br><span class="line">                    <span class="keyword">this</span>.upgrade = <span class="number">8</span>; </span><br><span class="line">                    <span class="keyword">this</span>.pauseGame();</span><br><span class="line">                    <span class="keyword">this</span>.move();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">9</span>:&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">this</span>.upgrade&lt;<span class="number">9</span>)&#123;</span><br><span class="line">                    alert(<span class="string">"恭喜你成功升为10级"</span>);</span><br><span class="line">                    <span class="keyword">this</span>.speed = <span class="number">150</span>;</span><br><span class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"level"</span>).selectedIndex = <span class="number">9</span>;</span><br><span class="line">                    <span class="keyword">this</span>.upgrade = <span class="number">9</span>; </span><br><span class="line">                    <span class="keyword">this</span>.pauseGame();</span><br><span class="line">                    <span class="keyword">this</span>.move();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">10</span>:&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">this</span>.upgrade&lt;<span class="number">10</span>)&#123;</span><br><span class="line">                    alert(<span class="string">"恭喜你成功升为11级"</span>);</span><br><span class="line">                    <span class="keyword">this</span>.speed = <span class="number">125</span>;</span><br><span class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"level"</span>).selectedIndex = <span class="number">10</span>;</span><br><span class="line">                    <span class="keyword">this</span>.upgrade = <span class="number">10</span>; </span><br><span class="line">                    <span class="keyword">this</span>.pauseGame();</span><br><span class="line">                    <span class="keyword">this</span>.move();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">11</span>:&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="keyword">this</span>.upgrade&lt;<span class="number">11</span>)&#123;</span><br><span class="line">                    alert(<span class="string">"恭喜你成功升为12级"</span>);</span><br><span class="line">                    <span class="keyword">this</span>.speed = <span class="number">100</span>;</span><br><span class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"level"</span>).selectedIndex = <span class="number">11</span>;</span><br><span class="line">                    <span class="keyword">this</span>.upgrade = <span class="number">11</span>; </span><br><span class="line">                    <span class="keyword">this</span>.pauseGame();</span><br><span class="line">                    <span class="keyword">this</span>.move();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">15</span>:&#123;</span><br><span class="line">                alert(<span class="string">"恭喜你，已经通关！"</span>);</span><br><span class="line">                <span class="built_in">window</span>.location.reload();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">          </span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">h1</span>&gt;</span>七彩贪吃蛇<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"operation"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"开始游戏"</span> <span class="attribute">id</span>=<span class="value">"begin"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"暂停游戏"</span> <span class="attribute">id</span>=<span class="value">"pause"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">select</span> <span class="attribute">id</span>=<span class="value">"level"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"600"</span>&gt;</span>1级<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"550"</span>&gt;</span>2级<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"500"</span>&gt;</span>3级<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"450"</span>&gt;</span>4级<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"400"</span>&gt;</span>5级<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"350"</span>&gt;</span>6级<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"300"</span>&gt;</span>7级<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"250"</span>&gt;</span>8级<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"200"</span>&gt;</span>9级<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"150"</span>&gt;</span>10级<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"125"</span>&gt;</span>11级<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"100"</span>&gt;</span>12级<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">id</span>=<span class="value">"lookMethod"</span>&gt;</span>查看/关闭操作方法<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span>&gt;</span>你的成绩：<span class="tag">&lt;<span class="title">em</span> <span class="attribute">id</span>=<span class="value">"container"</span>&gt;</span><span class="tag">&lt;/<span class="title">em</span>&gt;</span>分<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ol</span> <span class="attribute">id</span>=<span class="value">"hdMethod"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>点击“开始按钮”或者回车键开始游戏。<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>使用↑→↓←可控制蛇身前进的方向！<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>每得5分即可升级，速度也会相应加快，共12级！<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>如果操作不当，蛇身超过边界或者蛇头接触蛇身上任意一点，则会提示游戏失败，然后点击回车键，会重新加载游戏，所得积分和等级清零！<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>开始游戏后，请关闭此说明，以免在操作游戏时，使网页上下移动，影响游戏的效果！<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ol</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">var</span> begin = <span class="built_in">document</span>.getElementById(<span class="string">"begin"</span>);</span><br><span class="line">    <span class="keyword">var</span> pauseBtn = <span class="built_in">document</span>.getElementById(<span class="string">"pause"</span>);</span><br><span class="line">    <span class="keyword">var</span> level = <span class="built_in">document</span>.getElementById(<span class="string">"level"</span>);</span><br><span class="line">    <span class="keyword">var</span> lookMethod = <span class="built_in">document</span>.getElementById(<span class="string">"lookMethod"</span>);</span><br><span class="line">    <span class="keyword">var</span> methodContainer = <span class="built_in">document</span>.getElementById(<span class="string">"hdMethod"</span>);</span><br><span class="line">    begin.onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(zhenn.paused)&#123;</span><br><span class="line">            zhenn.move();</span><br><span class="line">            zhenn.paused = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    pauseBtn.onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!zhenn.paused)&#123;</span><br><span class="line">            zhenn.pauseGame();</span><br><span class="line">            zhenn.paused = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    level.onchange = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        zhenn.speed = <span class="keyword">this</span>.options[<span class="keyword">this</span>.selectedIndex].value;</span><br><span class="line">        zhenn.pauseGame();</span><br><span class="line">        zhenn.move();</span><br><span class="line">        zhenn.paused = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    lookMethod.onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(methodContainer.style.display == <span class="string">""</span>)&#123;</span><br><span class="line">            methodContainer.style.display = <span class="string">"block"</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            methodContainer.style.display = <span class="string">""</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-	 
-	     <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
-<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://yoursite.com"><strong>zhenn</strong></a></span>
-</p>
-       	 
       
     </div>
-    <footer>
+
+    <div class="post-footer">
       
-	 
-     		  
-  
-  <div class="categories">
-    <a href="/categories/技术/">技术</a>
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/"> #javascript </a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2010/03/30/计算字符串中出现次数最多的字符和出现的次数/">计算字符串中出现次数最多的字符和出现的次数</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2008/05/01/利用haslayout征服IE6、7/">利用haslayout征服IE6、7</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </div>
   </div>
 
-       		
-  
-  <div class="tags">
-    <a href="/tags/javascript/">javascript</a>
+
+
+    <div class="post-spread">
+      
+    </div>
+
+    
+      <div class="comments" id="comments">
+        
+          <div class="ds-thread" data-thread-key="2008/05/05/贪吃蛇/"
+               data-title="贪吃蛇" data-url="http://yoursite.com/2008/05/05/贪吃蛇/">
+          </div>
+        
+      </div>
+    
   </div>
 
-     		  
-<!-- JiaThis Button BEGIN -->
-<div class="jiathis_style addthis addthis_toolbox addthis_default_style" style="color: black">
-	<span class="jiathis_txt"></span>
-	<a class="jiathis_button_tools_1"></a>
-	<a class="jiathis_button_tools_2"></a>
-	<a class="jiathis_button_tools_3"></a>
-	<a class="jiathis_button_tools_4"></a>
-	<a href="http://www.jiathis.com/share?uid=1784645" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-	<a class="jiathis_counter_style"></a>
+
+        </div>
+
+        
+      </div>
+
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview">
+        <div class="site-author motion-element">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="zhenn" />
+          <p class="site-author-name">zhenn</p>
+        </div>
+        <p class="site-description motion-element"></p>
+        <div class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </div>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+        
+      </div>
+
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
+      
+
+    </div>
+  </div>
+
+
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; &nbsp; 
+  2015
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author">zhenn</span>
 </div>
-<script type="text/javascript">
-var jiathis_config = {data_track_clickback:'true'};
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
 </script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2022681" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-       	 
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
 
 
-<section id="comment">
-  <h1 class="title">留言</h1>
-<div id="uyan_frame"></div>
-<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=2022681" async=""></script>
-</section>
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
 
-</div>
-    </div>
-    <div class="tabbar" onload="divideTabBar()">
-	
-      <div class="tabbaritem"><a class="next" href="/">主页</a></div>
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    });
+  </script>
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
     
-      <div class="tabbaritem"><a class="next" href="/archives/">归档</a></div>
-    
-      <div class="tabbaritem"><a class="next" href="/about/">关于我</a></div>
-    
-</div>
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"6961706a24417bd4d2c348fbd18a996b"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
 
 
-  </div>
+  
+  
+
 </body>
 </html>
