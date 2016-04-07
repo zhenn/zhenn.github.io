@@ -142,6 +142,89 @@
           
           
             
+              <a class="post-title-link" href="/2016/04/07/『video』mp4边下边播/">
+                『video』mp4边下边播
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2016-04-07
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术/">技术</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2016/04/07/『video』mp4边下边播/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/『video』mp4边下边播/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>使用H5 video播放器播放mp4视频，遇到一个奇怪的现象，部分mp4视频需要下载完整才能播放，有些则可以边下载边播放。</p>
+<p>开始怀疑是video播放器问题或配置有误，查看文档并未找到有帮助信息。后来在同事提醒下，发现视频元数据 (编码等级、分辨率、色域、码率、帧率、位深、时长等等)写在文件末尾，播放器播放时需要读取时长就需要下载整个视频才能读到。一般元数据写在 文件头 部 ，有些转码器可能会写文件尾部， 如FFmpeg将视频转换成MP4。</p>
+<p>要解决这个问题很简单，可用<code>qt-faststart</code>重新码。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/07/『video』mp4边下边播/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/08/HTML发展史/">
                 HTML发展史
               </a>
@@ -879,91 +962,6 @@
 
 
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2012/01/30/mac-jslint-for-vim/">
-                mac:jslint_for_vim
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2012-01-30
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/技术/">技术</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2012/01/30/mac-jslint-for-vim/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2012/01/30/mac-jslint-for-vim/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h3 id="1，准备js引擎">1，准备js引擎</h3><p>mac下默认没有裸的js引擎，需手动安装</p>
-<p><code>sudo brew install spidermonkey</code></p>
-<p>安装jslint上的文档说明，安装的软件包应该是spidermonkey-bin，但笔者一直搜不到相关软件包，无奈之下就用了spidermonkey。</p>
-<h3 id="2，安装ruby">2，安装ruby</h3><p>jslint程序本身是用ruby写的，所以ruby环境也是必须的</p>
-<p><code>sudo port install ruby</code></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2012/01/30/mac-jslint-for-vim/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
   </div>
 
   
@@ -1002,7 +1000,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1016,7 +1014,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -1051,7 +1049,7 @@
         <div class="copyright">
   
   &copy; &nbsp; 
-  2015
+  2016
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
