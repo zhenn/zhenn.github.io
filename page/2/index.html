@@ -142,6 +142,94 @@
           
           
             
+              <a class="post-title-link" href="/2013/04/27/mac：zsh配置/">
+                mac：zsh配置
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2013-04-27
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术/">技术</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2013/04/27/mac：zsh配置/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/27/mac：zsh配置/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p><code>Zsh</code>是一款功能强大的交互式 shell，与 Bash 相比，Zsh 下面几点表现令人印象深刻：</p>
+<ul>
+<li>自动补全</li>
+<li>拼写纠错</li>
+<li>定制性强</li>
+<li>美观的命令提示符（这点吸引力最大）Setup</li>
+</ul>
+<h2 id="一，安装zsh">一，安装zsh</h2><p><code>brew install zsh 或 port install zsh</code></p>
+<h2 id="二，设置zsh为默认shell">二，设置zsh为默认shell</h2><p>首先查看zsh路径，运行which zsh，通常显示为 /bin/zsh，然后执行<code>vim /etc/shells</code><br>在文末增加：/bin/zsh</p>
+<p>将zsh设置为默认的<code>Shell：chsh -s /bin/zsh</code></p>
+<h2 id="三，插件管理">三，插件管理</h2><p>oh-my-zsh是基于zsh的功能做了一 个扩展，方便的插件管理、主题自定义，以及漂亮的自动完成效果。</p>
+<p>安装过程全自动：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">via <span class="string">`curl`</span></span><br><span class="line">curl -<span class="constant">L</span> <span class="symbol">https:</span>/<span class="regexp">/github.com/robbyrussell</span><span class="regexp">/oh-my-zsh/raw</span><span class="regexp">/master/tools</span><span class="regexp">/install.sh | sh</span></span><br></pre></td></tr></table></figure></p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2013/04/19/移动端webapp：图片使用最佳实践/">
                 移动端webapp：图片使用最佳实践
               </a>
@@ -887,89 +975,6 @@
 
 
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2011/04/22/关于IE透明度失效的问题/">
-                关于IE透明度失效的问题
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2011-04-22
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/技术/">技术</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2011/04/22/关于IE透明度失效的问题/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2011/04/22/关于IE透明度失效的问题/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>近期项目中，发现这个诡异的问题，IE（以下如有特殊说明，指全部IE系列浏览器）下透明滤镜竟然会失效。起因在于，在做一个lightbox时，发现遮 罩层透明效果是失效的，在第一时间里，我当然是把问题定位在YUI组建设计的缺陷上，但是当我用IE调试工具看到遮罩层渲染的样式时，我震惊了。</p>
-<p>如下图：</p>
-<p><img src="/img/111.jpg" alt=""></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2011/04/22/关于IE透明度失效的问题/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
   </div>
 
   
@@ -1008,7 +1013,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1022,7 +1027,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
