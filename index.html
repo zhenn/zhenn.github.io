@@ -269,8 +269,7 @@
 
       
         
-          <p>在Javascript相关文章中，经常出现两个词，分别是shim和polyfill，两者含义非常相近，均有封装、兼容的意思。那么是否意味着shim完全等同于polyfill呢？</p>
-<p>答案必然是否定的。</p>
+          <p>在Javascript相关文章中，经常出现两个词，分别是shim和polyfill，两者含义非常相近，都有封装、兼容的意思，但又不尽相同。</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/05/18/shim和polyfill的区别/#more">
               阅读全文 &raquo;
@@ -305,8 +304,8 @@
           
           
             
-              <a class="post-title-link" href="/2016/04/07/『video』mp4边下边播/">
-                『video』mp4边下边播
+              <a class="post-title-link" href="/2016/04/07/如何让mp4边下边播/">
+                如何让mp4边下边播
               </a>
             
           
@@ -335,8 +334,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2016/04/07/『video』mp4边下边播/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/『video』mp4边下边播/"></span>
+            <a href="/2016/04/07/如何让mp4边下边播/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/07/如何让mp4边下边播/"></span>
             </a>
           </span>
           
@@ -351,11 +350,12 @@
 
       
         
-          <p>使用H5 video播放器播放mp4视频，遇到一个奇怪的现象，部分mp4视频需要下载完整才能播放，有些则可以边下载边播放。</p>
-<p>开始怀疑是video播放器问题或配置有误，查看文档并未找到有帮助信息。后来在同事提醒下，发现视频元数据 (编码等级、分辨率、色域、码率、帧率、位深、时长等等)写在文件末尾，播放器播放时需要读取时长就需要下载整个视频才能读到。一般元数据写在 文件头 部 ，有些转码器可能会写文件尾部， 如FFmpeg将视频转换成MP4。</p>
-<p>要解决这个问题很简单，可用<code>qt-faststart</code>重新码。</p>
+          <h3 id="问题描述">问题描述</h3><p>使用H5 video标签播放mp4资源，部分视频需要下载完整才能播放，有些则可以边下载边播放。</p>
+<h3 id="决定因素">决定因素</h3><p>元数据 —— 编码等级、分辨率、色域、码率、帧率、位深、时长等等；</p>
+<p>视频何时可播放取决于视频元数据位置，如其位于文件末尾，播放器播放时需要读取时长就需要下载整个视频才能读到。相反的，若把元数据放到文件头部，就可提前播放时间点。</p>
+<p>有些转码器会把元数据写到文件尾部，如FFmpeg将视频转换成MP4，解决办法就很简单，使用新的转码器把元数据放到头部即可，比如<code>qt-faststart</code>。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/07/『video』mp4边下边播/#more">
+            <a class="btn" href="/2016/04/07/如何让mp4边下边播/#more">
               阅读全文 &raquo;
             </a>
           </div>
@@ -434,95 +434,9 @@
 
       
         
-          <p><img src="/img/htmlhistory.png" alt=""></p>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/29/H5游戏在手机QQ中分享问题调研/">
-                H5游戏在手机QQ中分享问题调研
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-29
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/技术/">技术</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/29/H5游戏在手机QQ中分享问题调研/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/29/H5游戏在手机QQ中分享问题调研/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p><img src="/img/g/11.png" alt=""></p>
-<h4 id="问题描述">问题描述</h4><hr>
-<ul>
-<li>用户A在碰碰客户端内，分享“你懂我吗”到QQ好友B</li>
-<li>B进入QQ，打开对话框分享气泡进入游戏</li>
-<li>B顺利完成游戏后，创建自己的问卷，然后分享游戏给自己的QQ好友C</li>
-<li>好友C打开游戏页面，显示问卷创建者是碰碰用户A</li>
-<li>正常情况下，应该显示创建者为QQ用户B</li>
-</ul>
-<p><strong>补充：</strong>用户B，仅通过“分享给QQ好友”渠道出出现问题，其他诸如“分享到QQ空间”、“分享给微信好友”、“分享到朋友圈”均正常。</p>
+          <p>html发展历史：</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/29/H5游戏在手机QQ中分享问题调研/#more">
+            <a class="btn" href="/2015/07/08/HTML发展史/#more">
               阅读全文 &raquo;
             </a>
           </div>
@@ -954,6 +868,94 @@
 
 
     
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2013/04/27/mac：zsh配置/">
+                mac：zsh配置
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2013-04-27
+        </span>
+
+        
+          <span class="post-category">
+            &nbsp; | &nbsp; 分类于
+            
+              <a href="/categories/技术/">技术</a>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2013/04/27/mac：zsh配置/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/27/mac：zsh配置/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p><code>Zsh</code>是一款功能强大的交互式 shell，与 Bash 相比，Zsh 下面几点表现令人印象深刻：</p>
+<ul>
+<li>自动补全</li>
+<li>拼写纠错</li>
+<li>定制性强</li>
+<li>美观的命令提示符（这点吸引力最大）Setup</li>
+</ul>
+<h2 id="一，安装zsh">一，安装zsh</h2><p><code>brew install zsh 或 port install zsh</code></p>
+<h2 id="二，设置zsh为默认shell">二，设置zsh为默认shell</h2><p>首先查看zsh路径，运行which zsh，通常显示为 /bin/zsh，然后执行<code>vim /etc/shells</code><br>在文末增加：/bin/zsh</p>
+<p>将zsh设置为默认的<code>Shell：chsh -s /bin/zsh</code></p>
+<h2 id="三，插件管理">三，插件管理</h2><p>oh-my-zsh是基于zsh的功能做了一 个扩展，方便的插件管理、主题自定义，以及漂亮的自动完成效果。</p>
+<p>安装过程全自动：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">via <span class="string">`curl`</span></span><br><span class="line">curl -<span class="constant">L</span> <span class="symbol">https:</span>/<span class="regexp">/github.com/robbyrussell</span><span class="regexp">/oh-my-zsh/raw</span><span class="regexp">/master/tools</span><span class="regexp">/install.sh | sh</span></span><br></pre></td></tr></table></figure></p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
   </div>
 
   
@@ -992,7 +994,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

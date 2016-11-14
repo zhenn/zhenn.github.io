@@ -229,11 +229,8 @@
 <p>另外，图片经过base64编码后，要比图片本身体力大30%左右，即传输文本的量要比单独加载一张图片大一些。因此，正确的使用dataURI很有必要。一般情况下，只对网页中体积交小且仅单次使用的图标icon文件使用dataURI将是最优的方式。</p>
 <h3 id="7，按需加载图片">7，按需加载图片</h3><p>按需加载在前端已经不是一个新鲜的话题，在桌面端项目中已经得到普遍使用，即以img节点出现在浏览器可视区域为临界点分批加载图片，避免多度占用系统内存带来的卡屏现象。至于出现视口以外的图片，已经占用内存并在本页面关闭之前无法释放，html5没有提供任何的解决方案。</p>
 <p>在native技术体系中，则使用UITableViewCells来优化内存、性能及响应。作为一个html5开发者，只能望“N”兴叹了。</p>
-<h3 id="8，ios系统中对图像体积及内存的限制">8，ios系统中对图像体积及内存的限制</h3><p>在ios系统中开发webapp，要了解其对图像体积及内存限制的阀值，一旦达到临界点，浏览器将会crash。</p>
-<p>对于gif、png、tiff格式图像，内存占用少于256m时，图像总尺寸不得大于300像素，而占用内存大于等于256m时，图像总尺寸应该小于500像素。也就是说当占用内存小于256m情况下，确保你的图像总尺寸width  <em> height &gt;= 3 </em> 1024 * 1024。</p>
 <p>—</p>
 <p>以上就是本文相关内容，可能还不是很完整，待续！</p>
-<p>在大多数情况下，web中使用图片带来的性能问题不会出现，但是我希望在出现问题时（低端配置手机很有可能），你能从本人中找到相关解决问题的方法或思路。</p>
 
       
     </div>
@@ -346,7 +343,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -388,7 +385,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一，网页载入图片及渲染过程"><span class="nav-number">1.</span> <span class="nav-text">一，网页载入图片及渲染过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1，图片的载入"><span class="nav-number">1.1.</span> <span class="nav-text">1，图片的载入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2，渲染过程"><span class="nav-number">1.2.</span> <span class="nav-text">2，渲染过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二，图片占用内存大小"><span class="nav-number">2.</span> <span class="nav-text">二，图片占用内存大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三，图片性能及最佳实践"><span class="nav-number">3.</span> <span class="nav-text">三，图片性能及最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1，使用sprite合并背景图片"><span class="nav-number">3.1.</span> <span class="nav-text">1，使用sprite合并背景图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2，指定图片的宽高"><span class="nav-number">3.2.</span> <span class="nav-text">2，指定图片的宽高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3，切割合理的平铺图片"><span class="nav-number">3.3.</span> <span class="nav-text">3，切割合理的平铺图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4，适应retina显示屏"><span class="nav-number">3.4.</span> <span class="nav-text">4，适应retina显示屏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5，避免使用gif等动态图片"><span class="nav-number">3.5.</span> <span class="nav-text">5，避免使用gif等动态图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6，_适度使用dataURI"><span class="nav-number">3.6.</span> <span class="nav-text">6， 适度使用dataURI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7，按需加载图片"><span class="nav-number">3.7.</span> <span class="nav-text">7，按需加载图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8，ios系统中对图像体积及内存的限制"><span class="nav-number">3.8.</span> <span class="nav-text">8，ios系统中对图像体积及内存的限制</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一，网页载入图片及渲染过程"><span class="nav-number">1.</span> <span class="nav-text">一，网页载入图片及渲染过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1，图片的载入"><span class="nav-number">1.1.</span> <span class="nav-text">1，图片的载入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2，渲染过程"><span class="nav-number">1.2.</span> <span class="nav-text">2，渲染过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二，图片占用内存大小"><span class="nav-number">2.</span> <span class="nav-text">二，图片占用内存大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三，图片性能及最佳实践"><span class="nav-number">3.</span> <span class="nav-text">三，图片性能及最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1，使用sprite合并背景图片"><span class="nav-number">3.1.</span> <span class="nav-text">1，使用sprite合并背景图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2，指定图片的宽高"><span class="nav-number">3.2.</span> <span class="nav-text">2，指定图片的宽高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3，切割合理的平铺图片"><span class="nav-number">3.3.</span> <span class="nav-text">3，切割合理的平铺图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4，适应retina显示屏"><span class="nav-number">3.4.</span> <span class="nav-text">4，适应retina显示屏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5，避免使用gif等动态图片"><span class="nav-number">3.5.</span> <span class="nav-text">5，避免使用gif等动态图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6，_适度使用dataURI"><span class="nav-number">3.6.</span> <span class="nav-text">6， 适度使用dataURI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7，按需加载图片"><span class="nav-number">3.7.</span> <span class="nav-text">7，按需加载图片</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
